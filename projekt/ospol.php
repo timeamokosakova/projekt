@@ -18,7 +18,7 @@
                 <td><A HREF="OB.php">Zásielka</A></td>
                 <td><A HREF="SZ.php"> Sledovanie zásielok </A></td>
                 <td><A HREF="EZ.php">Evidencia Zákazníkov</A></td>
-                <td><A HREF="kontakt.php>Kontakt</A></td>
+                <td><A HREF="kontakt.php">Kontakt</A></td>
                 <td><br></td>
             </tr>
         </table>
