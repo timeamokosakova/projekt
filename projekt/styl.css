@@ -15,7 +15,9 @@ DIV {
     padding: 2px;
     
 }
-
+.uvod {
+    background-color:pink;
+}
 .hlavna {
     font-family: Times New Roman;
     width: 1488px;
