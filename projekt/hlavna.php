@@ -22,11 +22,11 @@ session_start();
         <table>
             <tr>
                 <td><a href="hlavna.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-                <td><A HREF="oSPOL.php?page=2"> O spoloènosti</A></td>
-                <td><A HREF="OB.php?page=3">Zásielka</A></td>
-                <td><A HREF="SZ.php?page=4"> Sledovanie zásielok </A></td>
-                <td><A HREF="EZ.php?page=5">Evidencia Zákazníkov</A></td>
-                <td><A HREF="kontakt.php?page=6">Kontakt</A></td>
+                <td><A HREF="oSPOL.php> O spoloènosti</A></td>
+                <td><A HREF="OB.php>Zásielka</A></td>
+                <td><A HREF="SZ.php> Sledovanie zásielok </A></td>
+                <td><A HREF="EZ.php">Evidencia Zákazníkov</A></td>
+                <td><A HREF="kontakt.php">Kontakt</A></td>
                 <td><br></td>
             </tr>
         </table>
