@@ -11,7 +11,7 @@ session_start();
     <title>Doručovacia služba</title>
 </head>
 
-    <a href="hlavna.php">
+    <a href="index.php">
         <img src="log.JPG" style="width:10%;height:40px">
     </a>
 
