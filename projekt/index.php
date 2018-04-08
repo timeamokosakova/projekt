@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="utf-8" />
     <LINK rel="stylesheet" type="text/css" href="styl.css">
-    <title>Doruèovacia sluba</title>
+    <title>DoruÄovacia sluÅ¾ba</title>
 </head>
 
     <a href="hlavna.php">
@@ -18,14 +18,14 @@ session_start();
 <body>
 
 
-    <DIV class=”menu”>
+    <DIV class=ï¿½menuï¿½>
         <table>
             <tr>
-                <td><a href="hlavna.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-                <td><A HREF="oSPOL.php> O spoloènosti</A></td>
-                <td><A HREF="OB.php>Zásielka</A></td>
-                <td><A HREF="SZ.php> Sledovanie zásielok </A></td>
-                <td><A HREF="EZ.php">Evidencia Zákazníkov</A></td>
+                <td><a href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
+                <td><A HREF="oSPOL.php> O spoloï¿½nosti</A></td>
+                <td><A HREF="OB.php>Zï¿½sielka</A></td>
+                <td><A HREF="SZ.php> Sledovanie zï¿½sielok </A></td>
+                <td><A HREF="EZ.php">Evidencia Zï¿½kaznï¿½kov</A></td>
                 <td><A HREF="kontakt.php">Kontakt</A></td>
                 <td><br></td>
             </tr>
@@ -36,5 +36,5 @@ session_start();
             <CENTER><img src="posta.gif" style="vertical-align: text-bottom;;width:400PX;height:400PX0px"></CENTER>
         </DIV>
 </body>
-        <p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
+        <p style="font-size:small; text-align:center;"> Tï¿½mea Mokoï¿½ï¿½kovï¿½, 2018</style>
 </html>
