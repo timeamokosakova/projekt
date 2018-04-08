@@ -21,7 +21,7 @@ session_start();
     <DIV class=”menu”>
         <table>
             <tr>
-                <td><a href="hlavna.php?page=1"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
+                <td><a href="hlavna.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
                 <td><A HREF="oSPOL.php?page=2"> O spoloènosti</A></td>
                 <td><A HREF="OB.php?page=3">Zásielka</A></td>
                 <td><A HREF="SZ.php?page=4"> Sledovanie zásielok </A></td>
