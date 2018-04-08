@@ -13,8 +13,7 @@
 DIV {
     margin: 4px;
     padding: 2px;
-    width:20px;
-    
+ 
 }
 
 
@@ -26,14 +25,15 @@ DIV {
     margin: 2px;
     background-color:white;
 }
-
-.menu A, A:link, A:visited {
+.menu {width:100px;
+}
+. A, A:link, A:visited {
     font-family: "Times New Roman";
     font-size: 30px;
     text-decoration: NONE;
     padding: 4px;
     text-align: center;
-    width:1000px;
+
      
 }
 
