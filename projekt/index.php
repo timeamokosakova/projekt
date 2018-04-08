@@ -37,5 +37,5 @@ session_start();
             </DIV>
         </DIV>
 </body>
-<p style="font-size:small; text-align:center;"> T�mea Moko��kov�, 2018</style>
+<p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
 </html>
