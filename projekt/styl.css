@@ -23,10 +23,10 @@ DIV {
     height: auto;
     border: 4px DOTTED;
     margin: 2px;
-    background-color:white;
+    
 }
 
-}
+
 . menu A, A:link, A:visited {
     font-family: "Times New Roman";
     font-size: 30px;
