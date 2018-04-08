@@ -17,7 +17,7 @@ session_start();
 
 <body>
 
-    <div class="uvod">
+   
         <DIV class="menu">
             <table>
                 <tr>

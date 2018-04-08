@@ -15,11 +15,8 @@ DIV {
     padding: 2px;
     
 }
-.uvod {
-    background-color:pink;
-    width:100px;
-    height: 100px;
-}
+
+
 .hlavna {
     font-family: Times New Roman;
     width: 1488px;
@@ -35,6 +32,8 @@ DIV {
     text-decoration: NONE;
     padding: 4px;
     text-align: center;
+    width:1000px;
+     
 }
 
 TABLE {
