@@ -5,7 +5,7 @@
     <LINK rel="stylesheet" type="text/css" href="styl.css">
     <title>Doruèovacia služba</title>
 
-    <a href="hlavna.html">
+    <a href="index.html">
         <img src="log.JPG" style="width:10%;height:40px">
     </a>
 
