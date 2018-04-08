@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: red;
+    background-color: ghostwhite;
     background-attachment: relative;
     width: auto;
     height: auto;
@@ -8,6 +8,7 @@
     font-family: "Times New Roman";
     text-align: justify;
     margin: auto;
+ 
 }
 
 DIV {
@@ -25,9 +26,9 @@ DIV {
     margin: 2px;
     background-color:white;
 }
-.menu {width:100px;
+
 }
-. A, A:link, A:visited {
+. menu A, A:link, A:visited {
     font-family: "Times New Roman";
     font-size: 30px;
     text-decoration: NONE;
