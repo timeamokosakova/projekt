@@ -30,25 +30,7 @@ session_start();
                 <td><br></td>
             </tr>
         </table>
-<?php
-        $id_stranky = $_GET["page"];
 
-        switch ($id_stranky) {
-
-        case 1 : include_once ("pages/hlavna.php"); break;
-        case 2 : include_once ("pages/ospol.php"); break;
-        case 3 : include_once ("pages/ob.php"); break;
-        case 4 : include_once ("pages/sz.php"); break;
-        case 5 : include_once ("pages/ez.php"); break;
-        case 6 : include_once ("pages/kontakt.php");break;
-        default : include_once ("pages/hlavna.php"); break;
-
-        }
-
-
-
-
-        ?>
 
         <DIV class="hlavna">
             <CENTER><img src="posta.gif" style="vertical-align: text-bottom;;width:400PX;height:400PX0px"></CENTER>
