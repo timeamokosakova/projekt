@@ -10,7 +10,7 @@
         </a>
 
 
-        <DIV class=�menu�>
+        <DIV class="menu">
             <table>
                 <tr>
                     <td><a href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;width:40PX;height:40PX"> </a>

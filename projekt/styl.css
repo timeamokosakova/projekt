@@ -11,6 +11,8 @@
  
 }
 
+.class active { background-color: red;
+}
 DIV {
     margin: 4px;
     padding: 2px;
