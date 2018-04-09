@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="SK-sk">
+<html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <LINK rel="stylesheet" type="text/css" href="styl.css">
-    <title>Doruèovacia sluba</title>
-    </head>
-    <a href="index.html">
-        <img src="log.JPG" style="width:10%;height:40px">
-    </a>
+    <title>
+        <a href="index.html">
+            <img src="log.JPG" style="width:10%;height:40px">
+        </a>
 
 
-    <DIV class=”menu”>
-        <table>
-            <tr>
-                <td><a href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;width:40PX;height:40PX"> </a>
-                <td><A HREF="oSPOL.php"> O spoloènosti</A></td>
-                <td><A HREF="OB.php">Zásielka</A></td>
-                <td><A HREF="SZ.php"> Sledovanie zásielok </A></td>
-                <td><A HREF="EZ.php">Evidencia Zákazníkov</A></td>
-                <td><A HREF="kontakt.php">Kontakt</A></td>
-                <td><br></td>
-            </tr>
-        </table>
+        <DIV class=ï¿½menuï¿½>
+            <table>
+                <tr>
+                    <td><a href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;width:40PX;height:40PX"> </a>
+                    <td><A HREF="oSPOL.php"> O spoloï¿½nosti</A></td>
+                    <td><A HREF="OB.php">Zï¿½sielka</A></td>
+                    <td><A HREF="SZ.php"> Sledovanie zï¿½sielok </A></td>
+                    <td><A HREF="EZ.php">Evidencia Zï¿½kaznï¿½kov</A></td>
+                    <td><A HREF="kontakt.php">Kontakt</A></td>
+                    <td><br></td>
+                </tr>
+            </table>
 
-        <DIV class="hlavna">
+            <DIV class="hlavna">
 
-            <UL type="disc">
-                <br>
-                <li>Spoloènos MDS so svojimi vlastnımi národnımi spoloènosami a partnermi pokrıva 10 európskych krajín. Kvalitná balíková sluba je našou najvyššou prioritou - viac ako 1000 zákazníkov sa na nás spolieha.</li>
-                <LI>Spoloènos vznikla v roku 2017. Za úèelom kvalitnej prepravy.</LI>
-                <br>
-                <br>
-                <br>
-            </UL>
+                <UL type="disc">
+                    <br>
+                    <li>SpoloÄnosÅ¥ MDS so svojimi vlastnÃ½mi nÃ¡rodnÃ½mi spoloÄnosÅ¥ami a partnermi pokrÃ½va 10 eurÃ³pskych krajÃ­n. KvalitnÃ¡ balÃ­kovÃ¡ sluÅ¾ba je naÅ¡ou najvyÅ¡Å¡ou prioritou - viac ako 1000 zÃ¡kaznÃ­kov sa na nÃ¡s spolieha.</li>
+                    <LI>SpoloÄnosÅ¥ vznikla v roku 2017. Za ÃºÄelom kvalitnej prepravy.</LI>
+                    <br>
+                    <br>
+                    <br>
+                </UL>
 
-        </DIV>
-        <p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
+            </DIV>
+            <p style="font-size:small; text-align:center;"> TÃ­mea MokoÅ¡Ã¡kovÃ¡, 2018</style>
 </html>
