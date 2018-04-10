@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="sk">
 
 <head>
     <meta charset="utf-8">
@@ -44,7 +43,8 @@
 
 </body>
 
-<p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
+<p style="font-size:small; text-align:center;">
+    Tímea Mokošáková, 2018</style>
 
 
-</html>
+    </html>

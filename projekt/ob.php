@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="sk">
 
 <head>
     <meta charset="utf-8">
@@ -8,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>DoruËovacia sluûba</title>
 </head>
+
 
 <a href="index.php">
     <img src="log.JPG" style="width:10%;height:40px">
@@ -25,68 +25,266 @@
 
 <body>
     
-    <?php
- $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "projekt";
+   
+ <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "projekt";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+
+
+      $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena )
+VALUES ('', '', ' ', '', '', '', '','','','','')";
+
+  
+      
+    $menooErr = $priezoErr = $menoaErr = $priezaErr = $ulicaErr =$cdErr =$obecErr =$pscErr =$statErr =$druhErr = $cenaErr  = "";
+    $menoo = $prieza = $menoa = $prieza = $ulica = $cd = $obec = $psc = $stat = $druh = $cena = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        if (empty($_POST["menoo"])) {
+            $menooErr = "Meno je potrebnÈ";
+        } else {
+            $menoo = test_input($_POST["menoo"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$menoo)) {
+                $menooErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+        
+        if (empty($_POST["priezo"])) {
+            $priezoErr = "Priezvisko je potrebnÈ";
+        } else {
+            $priezo = test_input($_POST["priezo"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$priezo)) {
+                $priezoErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+
+        if (empty($_POST["menoa"])) {
+            $menoaErr = "Meno je potrebnÈ";
+        } else {
+            $menoa = test_input($_POST["menoa"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$menoa)) {
+                $menoaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+
+        if (empty($_POST["prieza"])) {
+            $priezaErr = "Priezvisko je potrebnÈ";
+        } else {
+            $prieza = test_input($_POST["prieza"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$prieza)) {
+                $priezaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+        if (empty($_POST["ulica"])) {
+            $ulicaErr = "Ulica je potrebn·";
+        } else {
+            $ulica = test_input($_POST["ulica"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$ulica)) {
+                $ulicaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+        if (empty($_POST["cd"])) {
+            $cdErr = "»Ìslo je potrebnÈ";
+        } else {
+            $cd = test_input($_POST["cd"]);
+            if (!preg_match("/^[0-9]*$/",$cd)) {
+                $cdErr = "PovolenÈ s˙ len ËÌsla"; 
+            }
+        }
+        if (empty($_POST["obec"])) {
+            $obecErr = "Obec je potrebn·";
+        } else {
+            $obec = test_input($_POST["obec"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$obec)) {
+                $obecErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+
+        if (empty($_POST["psc"])) {
+            $pscErr = "PsË je potrebn·";
+        } else {
+            $psc = test_input($_POST["psc"]);
+            if (!preg_match("/^[0-9 ]*$/",$psc)) {
+                $pscErr = "PovolenÈ s˙ len ËÌsla a medzery"; 
+            }
+        }
+
+       
+        if (empty($_POST["stat"])) {
+            $statErr = "ät·t je potrebn˝";
+        } else {
+            $stat = test_input($_POST["stat"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$stat)) {
+                $statErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+
+        if (empty($_POST["druh"])) {
+            $druhErr = "Druh je potrebn˝";
+        } else {
+            $druh = test_input($_POST["druh"]);
+            if (!preg_match("/^[a-zA-Z ]*$/",$druh)) {
+                $druhErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+            }
+        }
+
+
+        if (empty($_POST["cena"])) {
+            $cenaErr = "Cena je potrebn·";
+        } else {
+            $cena = test_input($_POST["cena"]);
+            if (!preg_match("/^[0-9,]*$/",$cena)) {
+                $cenaErr = "PovolenÈ s˙ len ËÌsla a znak ,"; 
+            }
+        }
+
+
     }
-    
-    echo "<br>";
 
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    } 
 
-    
-    
-    
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close(); 
     ?>
 
-    
-    <DIV class="hlavna">
+   
+  <DIV class="hlavna">
 
-        <form action="ob.php" method="post" enctype="text/plain">
+     
+   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
             <br>
             <B><I>Odosielateæ: </I> </B>
             <p>
+
                 <div style="position: relative; top: -30px; left: 10px">
-                    <b>Meno: </b> <input type="text" name="menoo">
-                    <b>Priezvisko: </b> <input type="text" name="priezo">
+                    <b>Meno: </b> <input type="text" name="menoo" value="<?php echo $menoo;?>">
+                    <span class="error">* <?php echo $menooErr;?></span>
+
+                    <b>Priezvisko: </b> <input type="text" name="priezo" value="<?php echo $priezo;?>">
+                    <span class="error">* <?php echo $priezoErr;?></span>
                 </div>
+
                 <B> <I>Adres·t:</I> </B>
             <p>
                 <div style="position: relative; top: -30px; left: 10px">
-                    <b>Meno: </b> <input type="text" name="menoa">
-                    <b>Priezvisko: </b> <input type="text" name="prieza">
+                    <b>Meno: </b> <input type="text" name="menoa" value="<?php echo $menoa;?>">
+                    <span class="error">* <?php echo $menoaErr;?></span>
+
+                    <b>Priezvisko: </b> <input type="text" name="prieza" value="<?php echo $prieza;?>">
+                    <span class="error">* <?php echo $priezaErr;?></span>
                 </div>
+
                 <B> <I>Adresa z·sielky: </I> </B>
             <p>
                 <div style="position: relative; top: -30px; left: 100px">
-                    <b>Ulica: </b>  <input type="text" name="ulica">  <b>»Ìslo domu: </b>  <input type="number" name="cd">
+                    <b>Ulica: </b>  <input type="text" name="ulica"  value="<?php echo $ulica;?>"> <span class="error">* <?php echo $ulicaErr;?></span> <b>»Ìslo domu: </b>  <input type="number" name="cd" value="<?php echo $cd;?>"> <span class="error">* <?php echo $cdErr;?></span>
                 </div>
                 <div style="position: relative; top: -30px; left:100px;">
-                    <b>Obec/Mesto: </b>  <input type="text" name="obec">  <b>PsË: </b>  <input type="number" name="psc">
+                    <b>Obec/Mesto: </b>  <input type="text" name="obec" value="<?php echo $obec;?>">  <span class="error">* <?php echo $obecErr;?></span> <b>PsË: </b>  <input type="number" name="psc" value="<?php echo $psc;?>"> <span class="error">* <?php echo $pscErr;?></span>
                 </div>
+
                 <div style="position: relative; top: -30px;  left:100px;">
-                    <b>ät·t:</b> <input type="text" name="stat">
+                    <b>ät·t:</b> <input type="text" name="stat" value="<?php echo $stat;?>">  <span class="error">* <?php echo $statErr;?></span>
                     <br>
                 </div>
                 <div style="position: relative; top: -30px; left:10px">
-                    <b>Druh z·sielky:</b> <input type="text" name="druh">
-                    <b>Cena:</b> <input type="number" name="cena">
+                    <b>Druh z·sielky:</b> <input type="text" name="druh" value="<?php echo $druh;?>">  <span class="error">* <?php echo $druhErr;?></span>
+                    <b>Cena:</b> <input type="text" name="cena"  value="<?php echo $cena;?>">  <span class="error">* <?php echo $cenaErr;?></span>
                 </div>
                 <center>
-                    <input type="submit" value="Odoslaù">
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" value="Odoslaù"°> Odoslaù </button>
                 </center>
-
         </form>
+     
 
 
+        <?php
+ 
+        echo "<h2>Tvoje vloûenÈ inform·cie:</h2>";
+
+        if (!preg_match("/^[a-zA-Z ]*$/",$menoo)) {
+            $menooErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $menoo;}
+       echo " ";
+        
+        if (!preg_match("/^[a-zA-Z ]*$/",$priezo)) {
+            $priezoErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $priezo;}
+        echo "<br>";
+
+          if (!preg_match("/^[a-zA-Z ]*$/",$menoa)) {
+            $menoaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $menoa;}
+        echo " ";
+
+              if (!preg_match("/^[a-zA-Z ]*$/",$prieza)) {
+            $priezaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $prieza;}
+        echo "<br>";
+
+              if (!preg_match("/^[a-zA-Z ]*$/",$ulica)) {
+            $ulicaErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $ulica;}
+        echo " ";
+
+              if (!preg_match("/^[0-9]*$/",$cd)) {
+            $cdErr = "PovolenÈ s˙ len ËÌsla"; 
+        } else {echo $cd;}
+        echo "<br>";
+
+        if (!preg_match("/^[a-zA-Z ]*$/",$obec)) {
+            $obec = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $obec;}
+        echo "<br>";
+
+
+        if (!preg_match("/^[0-9 ]*$/",$psc)) {
+            $pscErr = "PovolenÈ s˙ len ËÌsla a medzery"; 
+        } else {echo $psc;}
+        echo "<br>";
+
+
+        if (!preg_match("/^[a-zA-Z ]*$/",$stat)) {
+            $statErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $stat;}
+        echo "<br>";
+
+
+        if (!preg_match("/^[a-zA-Z ]*$/",$druh)) {
+            $druhErr = "PovolenÈ s˙ len pÌsmen· a medzery"; 
+        } else {echo $druh;}
+        echo " ";
+
+
+        if (!preg_match("/^[0-9, ]*$/",$cena)) {
+            $cenaErr = "PovolenÈ s˙ len ËÌsla a ,"; 
+        } else {echo $cena;}
+        echo "Ä";
+        ?>
+
+  
+ 
     </DIV>
     
 
