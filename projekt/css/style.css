@@ -13,16 +13,16 @@ body {
 }
 
 .nav-fill {
-    background-color:pink;
+    background-color:lightskyblue;
     font-family: "Times New Roman";
     font-size: 30px;
     text-decoration: NONE;
     padding: 4px;
     text-align: center;
+    width: auto;
+    height: 70px;
 }
-.nav-link active {
-    background-color:red;
-}
+
 
 
 DIV {
@@ -30,14 +30,19 @@ DIV {
     padding: 2px;
 }
 
+footer {
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 30px;
+}
+
 
 .hlavna {
     font-family: Times New Roman;
-    width: 1488px;
+    width: auto;
     height: auto;
-    border: 4px;
     margin: 2px;
-    
+    border: 4px groove;
 }
 
 

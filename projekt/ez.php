@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>DoruËovacia sluûba</title>
+    <title>Doruƒçovacia slu≈æba</title>
 </head>
 
 <a href="index.php">
     <img src="log.JPG" style="width:10%;height:40px">
 </a>
 
-<---->pouûi session</---->
+
 
 <nav class="nav nav-pills nav-fill nav-fill">
 
     <a class="nav-item nav-link disabled" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoloËnosti</A>
-    <A class="nav-item nav-link disabled" HREF="OB.php"> Z·sielka </A>
-    <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie z·sielok </A>
-    <A class="nav-item nav-link active" HREF="EZ.php"> Spr·va z·sielok </A>
+    <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoloƒçnosti</A>
+    <A class="nav-item nav-link disabled" HREF="OB.php"> Z√°sielka </A>
+    <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie z√°sielok </A>
+    <A class="nav-item nav-link active" HREF="EZ.php"> Spr√°va z√°sielok </A>
     <A class="nav-item nav-link disabled" HREF="kontakt.php"> Kontakt</A>
 
 </nav>
@@ -34,7 +34,7 @@
         $password = "";
         $dbname = "projekt";
 
-        // Create connection
+        // Create connection //pou≈æi sssion
         $conn = new mysqli($servername, $username, $password, $dbname);
 
         // Check connection
@@ -55,11 +55,11 @@
             </div>
 
             <div style="position: relative; top: -30px; left: 10px">
-                <b>Ulica: </b>  <input type="text" name="ulica">  <b>»Ìslo domu: </b>  <input type="number" name="cislo">
+                <b>Ulica: </b>  <input type="text" name="ulica">  <b>ÔøΩÔøΩslo domu: </b>  <input type="number" name="cislo">
             </div>
 
             <div style="position: relative; top: -30px; left:10px;">
-                <b>Obec/Mesto: </b>  <input type="text" name="mesto">  <b>PsË: </b>  <input type="number" name="psc">
+                <b>Obec/Mesto: </b>  <input type="text" name="mesto">  <b>PsÔøΩ: </b>  <input type="number" name="psc">
             </div>
 
             <div style="position: relative; top: -30px;  left:10px;">
@@ -67,10 +67,10 @@
                 <br>
                 <b>Kraj: </b>  <input type="text" name="kraj">
                 <br>
-                <b>ät·t:</b> <input type="text" name="stat">
+                <b>ÔøΩtÔøΩt:</b> <input type="text" name="stat">
             </div>
             <center>
-                <input type="submit" value="Potvrdiù">
+                <input type="submit" value="PotvrdiÔøΩ">
                 <br>
             </center>
 
@@ -85,6 +85,10 @@
 </body>
 
 
+<footer>
 
-<p style="font-size:small; text-align:center;"> TÌmea Mokoö·kov·, 2018</style>
+     T√≠mea Moko≈°√°kov√°, 2018
+
+</footer>
+
 </html>

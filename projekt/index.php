@@ -15,14 +15,14 @@
 
   
 
-        <nav class="nav nav-pills nav-fill nav-fill">
+        <nav class="nav nav-pills nav-fill flex-column flex-sm-row">
            
-                  <a class="nav-item nav-link active" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-                    <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoločnosti</A>
-                    <A class="nav-item nav-link disabled" HREF="OB.php"> Zásielka </A>
-                    <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
-                    <A class="nav-item nav-link disabled" HREF="EZ.php"> Správa zásielok </A>
-                    <A class="nav-item nav-link disabled" HREF="kontakt.php"> Kontakt</A>
+                  <a class="nav-item flex-sm-fill text-sm-center nav-link active" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
+                    <A class=" nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="ospol.php"> O spoločnosti</A>
+                    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="OB.php"> Zásielka </A>
+                    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
+                    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="EZ.php"> Správa zásielok </A>
+                    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="kontakt.php"> Kontakt</A>
                 
         </nav>
 
@@ -37,5 +37,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 
-<p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
+
+     <footer>
+
+         Tímea Mokošáková, 2018
+
+     </footer>
+
 </html>
