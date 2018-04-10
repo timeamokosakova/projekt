@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Doručovacia služba</title>
 </head>
 
@@ -13,19 +13,20 @@
         <img src="log.JPG" style="width:10%;height:40px">
     </a>
 
-    <body>
+  
 
-        <nav class="nav nav-pills nav-fill nav-fill-red">
+        <nav class="nav nav-pills nav-fill nav-fill">
            
                   <a class="nav-item nav-link active" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
                     <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoločnosti</A>
                     <A class="nav-item nav-link disabled" HREF="OB.php"> Zásielka</A>
                     <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
-                    <A class="nav-item nav-link disabled" HREF="EZ.php"> Evidencia Zákazníkov</A>
+                    <A class="nav-item nav-link disabled" HREF="EZ.php"> Správa zásielok</A>
                     <A class="nav-item nav-link disabled" HREF="kontakt.php"> Kontakt</A>
                 
         </nav>
-             
+
+     <body>      
 
         <DIV class="hlavna">
             <CENTER><img src="posta.gif" style="vertical-align: text-bottom;;width:400PX;height:400PX0px"></CENTER>
@@ -35,5 +36,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
+
 <p style="font-size:small; text-align:center;"> Tímea Mokošáková, 2018</style>
 </html>

@@ -1,4 +1,5 @@
-﻿body {
+﻿
+body {
     background-color: ghostwhite;
     background-attachment: relative;
     width: auto;
@@ -11,8 +12,19 @@
  
 }
 
-.class active { background-color: red;
+.nav-fill {
+    background-color:pink;
+    font-family: "Times New Roman";
+    font-size: 30px;
+    text-decoration: NONE;
+    padding: 4px;
+    text-align: center;
 }
+.nav-link active {
+    background-color:red;
+}
+
+
 DIV {
     margin: 4px;
     padding: 2px;
@@ -23,7 +35,7 @@ DIV {
     font-family: Times New Roman;
     width: 1488px;
     height: auto;
-    border: 4px DOTTED;
+    border: 4px;
     margin: 2px;
     
 }
