@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Doruèovacia sluba</title>
+    <title>DoruÄovacia sluÅ¾ba</title>
 </head>
 
 
@@ -15,10 +15,10 @@
 
 <nav class="nav nav-pills nav-fill nav-fill">
     <a class="nav-item nav-link disabled" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoloènosti</A>
-    <A class="nav-item nav-link active" HREF="Ob.php"> Zásielka</A>
-    <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
-    <A class="nav-item nav-link disabled" HREF="EZ.php"> Správa zásielok</A>
+    <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoloÄnosti</A>
+    <A class="nav-item nav-link active" HREF="Ob.php"> ZÃ¡sielka</A>
+    <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie zÃ¡sielok </A>
+    <A class="nav-item nav-link disabled" HREF="EZ.php"> SprÃ¡va zÃ¡sielok</A>
     <A class="nav-item nav-link disabled" HREF="kontakt.php"> Kontakt</A>
 </nav>
 
@@ -26,147 +26,7 @@
 <body>
     
    
- <?php
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "projekt";
 
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-
-
-
-      $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena )
-VALUES ('', '', ' ', '', '', '', '','','','','')";
-
-  
-      
-    $menooErr = $priezoErr = $menoaErr = $priezaErr = $ulicaErr =$cdErr =$obecErr =$pscErr =$statErr =$druhErr = $cenaErr  = "";
-    $menoo = $prieza = $menoa = $prieza = $ulica = $cd = $obec = $psc = $stat = $druh = $cena = "";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        if (empty($_POST["menoo"])) {
-            $menooErr = "Meno je potrebné";
-        } else {
-            $menoo = test_input($_POST["menoo"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$menoo)) {
-                $menooErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-        
-        if (empty($_POST["priezo"])) {
-            $priezoErr = "Priezvisko je potrebné";
-        } else {
-            $priezo = test_input($_POST["priezo"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$priezo)) {
-                $priezoErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-
-        if (empty($_POST["menoa"])) {
-            $menoaErr = "Meno je potrebné";
-        } else {
-            $menoa = test_input($_POST["menoa"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$menoa)) {
-                $menoaErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-
-        if (empty($_POST["prieza"])) {
-            $priezaErr = "Priezvisko je potrebné";
-        } else {
-            $prieza = test_input($_POST["prieza"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$prieza)) {
-                $priezaErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-        if (empty($_POST["ulica"])) {
-            $ulicaErr = "Ulica je potrebná";
-        } else {
-            $ulica = test_input($_POST["ulica"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$ulica)) {
-                $ulicaErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-        if (empty($_POST["cd"])) {
-            $cdErr = "Èíslo je potrebné";
-        } else {
-            $cd = test_input($_POST["cd"]);
-            if (!preg_match("/^[0-9]*$/",$cd)) {
-                $cdErr = "Povolené sú len èísla"; 
-            }
-        }
-        if (empty($_POST["obec"])) {
-            $obecErr = "Obec je potrebná";
-        } else {
-            $obec = test_input($_POST["obec"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$obec)) {
-                $obecErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-
-        if (empty($_POST["psc"])) {
-            $pscErr = "Psè je potrebná";
-        } else {
-            $psc = test_input($_POST["psc"]);
-            if (!preg_match("/^[0-9 ]*$/",$psc)) {
-                $pscErr = "Povolené sú len èísla a medzery"; 
-            }
-        }
-
-       
-        if (empty($_POST["stat"])) {
-            $statErr = "Štát je potrebnı";
-        } else {
-            $stat = test_input($_POST["stat"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$stat)) {
-                $statErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-
-        if (empty($_POST["druh"])) {
-            $druhErr = "Druh je potrebnı";
-        } else {
-            $druh = test_input($_POST["druh"]);
-            if (!preg_match("/^[a-zA-Z ]*$/",$druh)) {
-                $druhErr = "Povolené sú len písmená a medzery"; 
-            }
-        }
-
-
-        if (empty($_POST["cena"])) {
-            $cenaErr = "Cena je potrebná";
-        } else {
-            $cena = test_input($_POST["cena"]);
-            if (!preg_match("/^[0-9,]*$/",$cena)) {
-                $cenaErr = "Povolené sú len èísla a znak ,"; 
-            }
-        }
-
-
-    }
-
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    } 
-
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close(); 
-    ?>
 
    
   <DIV class="hlavna">
@@ -174,7 +34,7 @@ VALUES ('', '', ' ', '', '', '', '','','','','')";
      
    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
             <br>
-            <B><I>Odosielate¾: </I> </B>
+            <B><I>Odosielateï¿½: </I> </B>
             <p>
 
                 <div style="position: relative; top: -30px; left: 10px">
@@ -185,7 +45,7 @@ VALUES ('', '', ' ', '', '', '', '','','','','')";
                     <span class="error">* <?php echo $priezoErr;?></span>
                 </div>
 
-                <B> <I>Adresát:</I> </B>
+                <B> <I>Adresï¿½t:</I> </B>
             <p>
                 <div style="position: relative; top: -30px; left: 10px">
                     <b>Meno: </b> <input type="text" name="menoa" value="<?php echo $menoa;?>">
@@ -195,92 +55,233 @@ VALUES ('', '', ' ', '', '', '', '','','','','')";
                     <span class="error">* <?php echo $priezaErr;?></span>
                 </div>
 
-                <B> <I>Adresa zásielky: </I> </B>
+                <B> <I>Adresa zï¿½sielky: </I> </B>
             <p>
                 <div style="position: relative; top: -30px; left: 100px">
-                    <b>Ulica: </b>  <input type="text" name="ulica"  value="<?php echo $ulica;?>"> <span class="error">* <?php echo $ulicaErr;?></span> <b>Èíslo domu: </b>  <input type="number" name="cd" value="<?php echo $cd;?>"> <span class="error">* <?php echo $cdErr;?></span>
+                    <b>Ulica: </b>  <input type="text" name="ulica"  value="<?php echo $ulica;?>"> <span class="error">* <?php echo $ulicaErr;?></span> <b>ï¿½ï¿½slo domu: </b>  <input type="number" name="cd" value="<?php echo $cd;?>"> <span class="error">* <?php echo $cdErr;?></span>
                 </div>
                 <div style="position: relative; top: -30px; left:100px;">
-                    <b>Obec/Mesto: </b>  <input type="text" name="obec" value="<?php echo $obec;?>">  <span class="error">* <?php echo $obecErr;?></span> <b>Psè: </b>  <input type="number" name="psc" value="<?php echo $psc;?>"> <span class="error">* <?php echo $pscErr;?></span>
+                    <b>Obec/Mesto: </b>  <input type="text" name="obec" value="<?php echo $obec;?>">  <span class="error">* <?php echo $obecErr;?></span> <b>Psï¿½: </b>  <input type="number" name="psc" value="<?php echo $psc;?>"> <span class="error">* <?php echo $pscErr;?></span>
                 </div>
 
                 <div style="position: relative; top: -30px;  left:100px;">
-                    <b>Štát:</b> <input type="text" name="stat" value="<?php echo $stat;?>">  <span class="error">* <?php echo $statErr;?></span>
+                    <b>ï¿½tï¿½t:</b> <input type="text" name="stat" value="<?php echo $stat;?>">  <span class="error">* <?php echo $statErr;?></span>
                     <br>
                 </div>
                 <div style="position: relative; top: -30px; left:10px">
-                    <b>Druh zásielky:</b> <input type="text" name="druh" value="<?php echo $druh;?>">  <span class="error">* <?php echo $druhErr;?></span>
+                    <b>Druh zï¿½sielky:</b> <input type="text" name="druh" value="<?php echo $druh;?>">  <span class="error">* <?php echo $druhErr;?></span>
                     <b>Cena:</b> <input type="text" name="cena"  value="<?php echo $cena;?>">  <span class="error">* <?php echo $cenaErr;?></span>
                 </div>
                 <center>
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" value="Odosla"¡> Odosla </button>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" value="Odoslaï¿½"ï¿½> Odoslaï¿½ </button>
                 </center>
         </form>
      
 
+       <?php
+       $servername = "localhost";
+       $username = "root";
+       $password = "";
+       $dbname = "projekt";
+
+       // Create connection
+       $conn = new mysqli($servername, $username, $password, $dbname);
+
+       // Check connection
+       if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
+       }
+
+
+
+       $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena )
+VALUES ('', '', ' ', '', '', '', '','','','','')";
+
+       
+       
+       $menooErr = $priezoErr = $menoaErr = $priezaErr = $ulicaErr =$cdErr =$obecErr =$pscErr =$statErr =$druhErr = $cenaErr  = "";
+       $menoo = $prieza = $menoa = $prieza = $ulica = $cd = $obec = $psc = $stat = $druh = $cena = "";
+       if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+           if (empty($_POST["menoo"])) {
+               $menooErr = "Meno je potrebnÃ©";
+           } else {
+               $menoo = test_input($_POST["menoo"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$menoo)) {
+                   $menooErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+           
+           if (empty($_POST["priezo"])) {
+               $priezoErr = "Priezvisko je potrebnï¿½";
+           } else {
+               $priezo = test_input($_POST["priezo"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$priezo)) {
+                   $priezoErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+
+           if (empty($_POST["menoa"])) {
+               $menoaErr = "Meno je potrebnï¿½";
+           } else {
+               $menoa = test_input($_POST["menoa"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$menoa)) {
+                   $menoaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+
+           if (empty($_POST["prieza"])) {
+               $priezaErr = "Priezvisko je potrebnï¿½";
+           } else {
+               $prieza = test_input($_POST["prieza"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$prieza)) {
+                   $priezaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+           if (empty($_POST["ulica"])) {
+               $ulicaErr = "Ulica je potrebnï¿½";
+           } else {
+               $ulica = test_input($_POST["ulica"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$ulica)) {
+                   $ulicaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+           if (empty($_POST["cd"])) {
+               $cdErr = "ï¿½ï¿½slo je potrebnï¿½";
+           } else {
+               $cd = test_input($_POST["cd"]);
+               if (!preg_match("/^[0-9]*$/",$cd)) {
+                   $cdErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla"; 
+               }
+           }
+           if (empty($_POST["obec"])) {
+               $obecErr = "Obec je potrebnï¿½";
+           } else {
+               $obec = test_input($_POST["obec"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$obec)) {
+                   $obecErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+
+           if (empty($_POST["psc"])) {
+               $pscErr = "Psï¿½ je potrebnï¿½";
+           } else {
+               $psc = test_input($_POST["psc"]);
+               if (!preg_match("/^[0-9 ]*$/",$psc)) {
+                   $pscErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla a medzery"; 
+               }
+           }
+
+           
+           if (empty($_POST["stat"])) {
+               $statErr = "ï¿½tï¿½t je potrebnï¿½";
+           } else {
+               $stat = test_input($_POST["stat"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$stat)) {
+                   $statErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+
+           if (empty($_POST["druh"])) {
+               $druhErr = "Druh je potrebnï¿½";
+           } else {
+               $druh = test_input($_POST["druh"]);
+               if (!preg_match("/^[a-zA-Z ]*$/",$druh)) {
+                   $druhErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
+               }
+           }
+
+
+           if (empty($_POST["cena"])) {
+               $cenaErr = "Cena je potrebnï¿½";
+           } else {
+               $cena = test_input($_POST["cena"]);
+               if (!preg_match("/^[0-9,]*$/",$cena)) {
+                   $cenaErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla a znak ,"; 
+               }
+           }
+
+
+       }
+
+       function test_input($data) {
+           $data = trim($data);
+           $data = stripslashes($data);
+           $data = htmlspecialchars($data);
+           return $data;
+       } 
+
+       if ($conn->query($sql) === TRUE) {
+           echo "New record created successfully";
+       } else {
+           echo "Error: " . $sql . "<br>" . $conn->error;
+       }
+
+       $conn->close(); 
+       ?>
 
         <?php
  
-        echo "<h2>Tvoje vloené informácie:</h2>";
+        echo "<h2>Tvoje vloï¿½enï¿½ informï¿½cie:</h2>";
 
         if (!preg_match("/^[a-zA-Z ]*$/",$menoo)) {
-            $menooErr = "Povolené sú len písmená a medzery"; 
+            $menooErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $menoo;}
        echo " ";
         
         if (!preg_match("/^[a-zA-Z ]*$/",$priezo)) {
-            $priezoErr = "Povolené sú len písmená a medzery"; 
+            $priezoErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $priezo;}
         echo "<br>";
 
           if (!preg_match("/^[a-zA-Z ]*$/",$menoa)) {
-            $menoaErr = "Povolené sú len písmená a medzery"; 
+            $menoaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $menoa;}
         echo " ";
 
               if (!preg_match("/^[a-zA-Z ]*$/",$prieza)) {
-            $priezaErr = "Povolené sú len písmená a medzery"; 
+            $priezaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $prieza;}
         echo "<br>";
 
               if (!preg_match("/^[a-zA-Z ]*$/",$ulica)) {
-            $ulicaErr = "Povolené sú len písmená a medzery"; 
+            $ulicaErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $ulica;}
         echo " ";
 
               if (!preg_match("/^[0-9]*$/",$cd)) {
-            $cdErr = "Povolené sú len èísla"; 
+            $cdErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla"; 
         } else {echo $cd;}
         echo "<br>";
 
         if (!preg_match("/^[a-zA-Z ]*$/",$obec)) {
-            $obec = "Povolené sú len písmená a medzery"; 
+            $obec = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $obec;}
         echo "<br>";
 
 
         if (!preg_match("/^[0-9 ]*$/",$psc)) {
-            $pscErr = "Povolené sú len èísla a medzery"; 
+            $pscErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla a medzery"; 
         } else {echo $psc;}
         echo "<br>";
 
 
         if (!preg_match("/^[a-zA-Z ]*$/",$stat)) {
-            $statErr = "Povolené sú len písmená a medzery"; 
+            $statErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $stat;}
         echo "<br>";
 
 
         if (!preg_match("/^[a-zA-Z ]*$/",$druh)) {
-            $druhErr = "Povolené sú len písmená a medzery"; 
+            $druhErr = "Povolenï¿½ sï¿½ len pï¿½smenï¿½ a medzery"; 
         } else {echo $druh;}
         echo " ";
 
 
         if (!preg_match("/^[0-9, ]*$/",$cena)) {
-            $cenaErr = "Povolené sú len èísla a ,"; 
+            $cenaErr = "Povolenï¿½ sï¿½ len ï¿½ï¿½sla a ,"; 
         } else {echo $cena;}
-        echo "€";
+        echo "ï¿½";
         ?>
 
   
@@ -294,5 +295,5 @@ VALUES ('', '', ' ', '', '', '', '','','','','')";
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
-<p style="font-size:small; text-align:center"> Tímea Mokošáková, 2018</style>
+<p style="font-size:small; text-align:center"> Tï¿½mea Mokoï¿½ï¿½kovï¿½, 2018</style>
 </html>
