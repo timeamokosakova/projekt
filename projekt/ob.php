@@ -16,7 +16,7 @@
 <nav class="nav nav-pills nav-fill nav-fill">
     <a class="nav-item nav-link disabled" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
     <A class="nav-item nav-link disabled" HREF="ospol.php"> O spoloènosti</A>
-    <A class="nav-item nav-link active" HREF="OB.php"> Zásielka</A>
+    <A class="nav-item nav-link active" HREF="Ob.php"> Zásielka</A>
     <A class="nav-item nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
     <A class="nav-item nav-link disabled" HREF="EZ.php"> Správa zásielok</A>
     <A class="nav-item nav-link disabled" HREF="kontakt.php"> Kontakt</A>
