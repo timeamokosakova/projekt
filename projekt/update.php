@@ -25,9 +25,9 @@ if(isset($_POST['update']))
 
     if($result)
     {
-        echo 'Dáta sme aktualizovali';
+        echo 'Dï¿½ta sme aktualizovali';
     }else{
-        echo 'Dáta neboli aktualizované';
+        echo 'Dï¿½ta neboli aktualizovanï¿½';
     }
     $conn->close();
 }
@@ -51,20 +51,24 @@ if(isset($_POST['update']))
 <body>
 
     <form action="update.php" method="post">
-       Sledovacie èíslo,ktoré ideme aktualizova:
-        <input type="text" name="id" id="id" value="<?php echo $id;?> "  placeholder="Sledovacie èíslo"/>>
+        Sledovacie ï¿½ï¿½slo,ktorï¿½ ideme aktualizovaï¿½:
+        <input type="text" name="id" id="id" value="<?php echo $id;?> " placeholder="Sledovacie ï¿½ï¿½slo" />>
         <br />
         <br />
 
-        Novı stav:
-        <input type="text" name="stav" id ="stav" value="<?php echo $stav;?> " placeholder="Stav">
+        Novï¿½ stav:
+        <input type="text" name="stav" id="stav" value="<?php echo $stav;?> " placeholder="Stav">
         <br />
-    
-         
-       
 
-        <input type="submit" name="update" value="Aktualizova" />
 
+
+
+        <input type="submit" name="update" value="AktualizovaÅ¥" />
+
+
+        <a href="ez.php">
+           SpÃ¤Å¥
+        </a>
     </form>
 
 </body>
