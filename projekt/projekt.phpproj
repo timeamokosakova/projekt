@@ -16,8 +16,10 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="conn.php" />
     <Compile Include="ez.php" />
     <Compile Include="index.php" />
+    <Compile Include="insert.php" />
     <Compile Include="ob.php" />
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
