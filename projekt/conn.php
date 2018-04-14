@@ -10,9 +10,31 @@
     die("Connection failed: " . $conn->connect_error);
     }
 
-    echo "Connected successfully";
-    echo "<br>";
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $stav = mysqli_real_escape_string($conn, $_POST['stav']);
 
-       
+
+    $sql = "select id, stav from ob ";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+
+
+
+        echo "<table border='7'><tr><th> Sledovacie ËÌslo </th><th>Stav</th></tr>";
+        
+        while($row = $result->fetch_assoc()) {
+            echo "<tr><td>".$row["id"]."</td><td>".$row["stav"]." </td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "0 results";
+    }
+$conn->close();
+
+
+ <a href="index.php">
+          sp‰ù
+        </a>
 
 ?>

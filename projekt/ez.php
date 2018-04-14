@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <head>
@@ -28,54 +30,132 @@
 <body>
     <DIV class="hlavna">
 
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "projekt";
 
-        // Create connection //použi sssion
-        $conn = new mysqli($servername, $username, $password, $dbname);
+    <?php
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "projekt";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $message="";
+    if(!empty($_POST["login"])) {
+    $result = mysqli_query($conn,"SELECT * FROM login WHERE user='" . $_POST["user"] . "' and password = '". $_POST["password"]."'");
+    $row  = mysqli_fetch_array($result);
+    if(is_array($row)) {
+    $_SESSION["id"] = $row['id'];
+    } else {
+    $message = "Invalid Username or Password!";
+    }
+    }
+    if(!empty($_POST["logout"])) {
+    $_SESSION["id"] = "";
+    session_destroy();
+    }
+    ?>
+        <html>
+        <head>
+            <title>User Login</title>
+            <style>
+                #frmLogin {
+                    padding: 20px 60px;
+                    background: #B6E0FF;
+                    color: #555;
+                    display: inline-block;
+                    border-radius: 4px;
+                }
 
-        // Check connection
-        if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-        }
+                .field-group {
+                    margin: 15px 0px;
+                }
 
-        echo "<br>";
-        ?>
+                .input-field {
+                    padding: 8px;
+                    width: 200px;
+                    border: #A3C3E7 1px solid;
+                    border-radius: 4px;
+                }
 
-        <form action="ez.php" method="post" enctype="text/plain">
+                .form-submit-button {
+                    background: #65C370;
+                    border: 0;
+                    padding: 8px 20px;
+                    border-radius: 4px;
+                    color: #FFF;
+                    text-transform: uppercase;
+                }
 
-            <br>
-            <div style="position: relative; top: -30px; left: 10px">
-                <b>Meno: </b><input type="text" name="meno">
-                <b>Priezvisko:</b> <input type="text" name="priez">
-                <br>
+                .member-dashboard {
+                    padding: 40px;
+                    background: #D2EDD5;
+                    color: #555;
+                    border-radius: 4px;
+                    display: inline-block;
+                    text-align: center;
+                }
+
+                .logout-button {
+                    color: #09F;
+                    text-decoration: none;
+                    background: none;
+                    border: none;
+                    padding: 0px;
+                    cursor: pointer;
+                }
+
+                .error-message {
+                    text-align: center;
+                    color: #FF0000;
+                }
+
+                .demo-content label {
+                    width: auto;
+                }
+            </style>
+        </head>
+        <body>
+            <div>
+                <div style="display:block;margin:0px auto;">
+                    <?php if(empty($_SESSION["id"])) { ?>
+                    <form action="" method="post" id="frmLogin">
+                        <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
+                        <div class="field-group">
+                            <div><label for="login">Username</label></div>
+                            <div><input name="user" type="text" class="input-field"></div>
+                        </div>
+                        <div class="field-group">
+                            <div><label for="password">Password</label></div>
+                            <div><input name="password" type="password" class="input-field"> </div>
+                        </div>
+                        <div class="field-group">
+                            <div><input type="submit" name="login" value="Login" class="form-submit-button"></span></div>
+                        </div>
+                    </form>
+                <?php
+                } else {
+                $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+                $row  = mysqli_fetch_array($result);
+                ?>
+                    <form action="" method="post" id="frmLogout">
+                        <div class="member-dashboard">
+                            Welcome <?php echo ucwords($row['display_name']); ?>, You have successfully logged in!<br>
+                            Click to <input type="submit" name="logout" value="Logout" class="logout-button">.
+                        </div>
+                    </form>
+                </div>
             </div>
+            <?php } ?>
 
-            <div style="position: relative; top: -30px; left: 10px">
-                <b>Ulica: </b>  <input type="text" name="ulica">  <b>��slo domu: </b>  <input type="number" name="cislo">
-            </div>
 
-            <div style="position: relative; top: -30px; left:10px;">
-                <b>Obec/Mesto: </b>  <input type="text" name="mesto">  <b>Ps�: </b>  <input type="number" name="psc">
-            </div>
+            <A href =" Update.php" > Zmena  </A>
 
-            <div style="position: relative; top: -30px;  left:10px;">
-                <b>Okres: </b>  <input type="text" name="okres">
-                <br>
-                <b>Kraj: </b>  <input type="text" name="kraj">
-                <br>
-                <b>�t�t:</b> <input type="text" name="stat">
-            </div>
-            <center>
-                <input type="submit" value="Potvrdi�">
-                <br>
-            </center>
+
+        </body>
+    </html>
 
     </DIV>
-    </form>
+   
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

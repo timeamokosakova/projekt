@@ -24,6 +24,7 @@
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
     <Compile Include="sz.php" />
+    <Compile Include="update.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
