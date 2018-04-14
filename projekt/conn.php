@@ -14,15 +14,16 @@
     $stav = mysqli_real_escape_string($conn, $_POST['stav']);
 
 
-    $sql = "select id, stav from ob ";
+    $sql = "SELECT `id`, `stav` FROM `ob` WHERE `id` = $id LIMIT 1";
     $result = $conn->query($sql);
+
 
     if ($result->num_rows > 0) {
 
 
 
         echo "<table border='7'><tr><th> Sledovacie èíslo </th><th>Stav</th></tr>";
-        
+
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>".$row["id"]."</td><td>".$row["stav"]." </td></tr>";
         }

@@ -2,21 +2,27 @@
 
 if(isset($_POST['search']))
 {
-    $hostname = "localhost";
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $databaseName = "projekt";
+    $dbname = "projekt";
 
-    $conn = mysqli_connect($hostname, $username, $password, $databaseName);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $stav = mysqli_real_escape_string($conn, $_POST['stav']);
 
 
-    // id na hľadanie
-    $id = $_POST['id'];
-    $stav = $_POST['stav'];
+  
 
     // mysql hľadanie query
     $query = "SELECT `id`, `stav` FROM `ob` WHERE `id` = $id LIMIT 1";
-    $result = mysqli_query($conn, $query);
+    $result = $conn->query($query);
 
     // if id exist
     // show data in inputs
@@ -43,9 +49,6 @@ if(isset($_POST['search']))
     $conn->close();
 
 }
-
-
-
 
 ?>
 
@@ -78,7 +81,7 @@ if(isset($_POST['search']))
 
     <DIV class="hlavna">
         <br>
-                Sledujte svoju zásielku kedykoľvek on-line: musíte len jednoducho zadať číslo. Informácie Track & Trace predstavujú podrobné údaje o stave doručenia a naposledy uskutočnenej operácii
+                Sledujte svoju zásielku kedykoľvek on-line: musíte len jednoducho zadať číslo. Informácie Track & Trace predstavujú podrobné údaje o stave doručenia a naposledy uskutočnenej operácii.
 
 
                 <form action="sz.php" method="post" enctype="text/plain">

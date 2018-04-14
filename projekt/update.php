@@ -5,20 +5,23 @@
 if(isset($_POST['update']))
 {
 
-    $hostname = "localhost";
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $databaseName = "projekt";
+    $dbname = "projekt";
 
-    $conn = mysqli_connect($hostname, $username, $password, $databaseName);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-
-
-    $id = $_POST['id'];
-    $stav = $_POST['stav'];
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $stav = mysqli_real_escape_string($conn, $_POST['stav']);
 
     $query = "UPDATE `ob` SET `stav`='".$stav."' WHERE `id` = $id";
-    $result = mysqli_query($conn, $query);
+    $result = $conn->query($query);
 
     if($result)
     {
