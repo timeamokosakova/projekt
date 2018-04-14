@@ -19,15 +19,15 @@ if(isset($_POST['update']))
 
 
 
-    $query = "UPDATE `ob` SET `stav`='".$stav."', WHERE `id` = $id";
+    $query = "UPDATE `ob` SET `stav`='".$stav."' WHERE `id` = $id";
 
-    $result = mysqli_query($connect, $query);
+    $result = mysqli_query($conn, $query);
 
     if($result)
     {
-        echo 'Data Updated';
+        echo 'D·ta sme aktualizovali';
     }else{
-        echo 'Data Not Updated';
+        echo 'D·ta neboli aktualizovanÈ';
     }
     $conn->close();
 }
@@ -40,7 +40,7 @@ if(isset($_POST['update']))
 
 <head>
 
-    <title> PHP UPDATE DATA </title>
+    <title> Aktualizacia </title>
 
     <meta charset="UTF-8" />
 
@@ -51,13 +51,13 @@ if(isset($_POST['update']))
 <body>
 
     <form action="update.php" method="post">
-        ID To Update:
-        <input type="text" name="id" required />
+       Sledovacie ËÌslo,ktorÈ ideme aktualizovaù:
+        <input type="text" name="id" id="id" value="<?php echo $id;?> "  placeholder="Sledovacie ËÌslo"/>>
         <br />
         <br />
 
-        New First stav:
-        <input type="text" name="stav" id ="stav" value="<?php echo $stav;?> " required />
+        Nov˝ stav:
+        <input type="text" name="stav" id ="stav" value="<?php echo $stav;?> " placeholder="Stav">
         <br />
     
          
