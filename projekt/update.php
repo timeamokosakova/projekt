@@ -17,17 +17,14 @@ if(isset($_POST['update']))
     $id = $_POST['id'];
     $stav = $_POST['stav'];
 
-
-
     $query = "UPDATE `ob` SET `stav`='".$stav."' WHERE `id` = $id";
-
     $result = mysqli_query($conn, $query);
 
     if($result)
     {
-        echo 'D�ta sme aktualizovali';
+        echo 'Dáta sme aktualizovali';
     }else{
-        echo 'D�ta neboli aktualizovan�';
+        echo 'Dáta neboli aktualizované';
     }
     $conn->close();
 }
@@ -51,12 +48,12 @@ if(isset($_POST['update']))
 <body>
 
     <form action="update.php" method="post">
-        Sledovacie ��slo,ktor� ideme aktualizova�:
-        <input type="text" name="id" id="id" value="<?php echo $id;?> " placeholder="Sledovacie ��slo" />>
+        Sledovacie číslo,ktoré ideme aktualizovať:
+        <input type="text" name="id" id="id" value="<?php echo $id;?> " placeholder="Sledovacie číslo">
         <br />
         <br />
 
-        Nov� stav:
+        Nový stav:
         <input type="text" name="stav" id="stav" value="<?php echo $stav;?> " placeholder="Stav">
         <br />
 
@@ -67,7 +64,7 @@ if(isset($_POST['update']))
 
 
         <a href="ez.php">
-           Späť
+            <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px" />
         </a>
     </form>
 

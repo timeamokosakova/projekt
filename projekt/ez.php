@@ -139,7 +139,7 @@
                 ?>
                     <form action="" method="post" id="frmLogout">
                         <div class="member-dashboard">
-                            Welcome <?php echo ucwords($row['display_name']); ?>, You have successfully logged in!<br>
+                            Welcome <?php echo ucwords($row['display_name']); ?>, You have successfully logged in!<A href="Update.php"> Zmena  </A> <br>
                             Click to <input type="submit" name="logout" value="Logout" class="logout-button">.
                         </div>
                     </form>
@@ -148,7 +148,7 @@
             <?php } ?>
 
 
-            <A href ="Update.php" > Zmena  </A>
+            
 
 
         </body>

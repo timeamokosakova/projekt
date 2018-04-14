@@ -1,3 +1,54 @@
+<?php
+
+if(isset($_POST['search']))
+{
+    $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "projekt";
+
+    $conn = mysqli_connect($hostname, $username, $password, $databaseName);
+
+
+    // id na hľadanie
+    $id = $_POST['id'];
+    $stav = $_POST['stav'];
+
+    // mysql hľadanie query
+    $query = "SELECT `id`, `stav` FROM `ob` WHERE `id` = $id LIMIT 1";
+    $result = mysqli_query($conn, $query);
+
+    // if id exist
+    // show data in inputs
+    if(mysqli_num_rows($result) > 0)
+    {
+      while ($row = mysqli_fetch_array($result))
+      {
+        $id = $row['id'];
+        $stav = $row['stav'];
+      }
+    }
+
+    // ak sledovacie nie je 
+    // zobrazí sa przázdny stav
+    else {
+        echo "Neidentifikované sledovacie číslo";
+        $id = "";
+        $stav = "";
+          
+    }
+
+
+    mysqli_free_result($result);
+    $conn->close();
+
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -31,8 +82,8 @@
 
 
                 <form action="sz.php" method="post" enctype="text/plain">
-                    <center><b>Sledovacie číslo: </center>
-                    <center> <input type="text" name="sledovacie"> <input type="submit" value="Potvrdiť"> </center>
+                    <center><b>Sledovacie číslo:  <input type="text" name="id">  Stav: <input type="text" name="stav" value="<?php echo $stav;?>">
+                    <br> <input type="submit" name="Hľadať" value="Hľadať"> </center>
                     <br>
                 </form>
     </DIV>
