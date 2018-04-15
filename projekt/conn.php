@@ -1,4 +1,4 @@
-<?php $servername = "localhost";
+Ôªø<?php $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "projekt";
@@ -22,7 +22,7 @@
 
 
 
-        echo "<table border='7'><tr><th> Sledovacie ËÌslo </th><th>Stav</th></tr>";
+        echo "<table border='7'><tr><th> Sledovacie ƒç√≠slo </th><th>Stav</th></tr>";
 
         while($row = $result->fetch_assoc()) {
             echo "<tr><td>".$row["id"]."</td><td>".$row["stav"]." </td></tr>";
@@ -35,7 +35,7 @@ $conn->close();
 
 
  <a href="index.php">
-          sp‰ù
+          sp√§≈•
         </a>
 
 ?>
