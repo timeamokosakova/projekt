@@ -21,7 +21,6 @@
     <Compile Include="ez.php" />
     <Compile Include="index.php" />
     <Compile Include="insert.php" />
-    <Compile Include="kontakform.php" />
     <Compile Include="ob.php" />
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
