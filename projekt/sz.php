@@ -1,7 +1,9 @@
 <?php
 
+
 if(isset($_POST['search']))
 {
+ 
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -14,41 +16,40 @@ if(isset($_POST['search']))
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $id = mysqli_real_escape_string($conn, $_POST['id']);
-    $stav = mysqli_real_escape_string($conn, $_POST['stav']);
-
-
-  
-
     // mysql hľadanie query
-    $query = "SELECT `id`, `stav` FROM `ob` WHERE `id` = $id LIMIT 1";
+    $query = "SELECT  `stav` FROM `ob` WHERE `id` = $id LIMIT 1";
     $result = $conn->query($query);
 
     // if id exist
     // show data in inputs
     if(mysqli_num_rows($result) > 0)
     {
-      while ($row = mysqli_fetch_array($result))
-      {
-        $id = $row['id'];
-        $stav = $row['stav'];
-      }
+        while ($row = mysqli_fetch_array($result))
+        {
+            
+            $stav = $row['stav'];
+        }
     }
 
     // ak sledovacie nie je 
     // zobrazí sa przázdny stav
     else {
         echo "Neidentifikované sledovacie číslo";
-        $id = "";
+        
         $stav = "";
-          
+        
     }
-
 
     mysqli_free_result($result);
     $conn->close();
 
 }
+
+else{
+    $stav = "";
+    
+}
+
 
 ?>
 
@@ -86,7 +87,7 @@ if(isset($_POST['search']))
 
                 <form action="sz.php" method="post" enctype="text/plain">
                     <center><b>Sledovacie číslo:  <input type="text" name="id">  Stav: <input type="text" name="stav" value="<?php echo $stav;?>">
-                    <br> <input type="submit" name="Hľadať" value="Hľadať"> </center>
+                    <br> <input type="submit" name="search" value="Hľadať"> </center>
                     <br>
                 </form>
     </DIV>
@@ -96,7 +97,9 @@ if(isset($_POST['search']))
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
-
+<button type="submit" name="submit" class="btn btn-primary" value="Späť" onclick="history.back(-1)">
+    Späť
+</button>
 <footer>
 
     Tímea Mokošáková, 2018

@@ -47,6 +47,10 @@
 
 </body>
 
+<button type="submit" name="submit" class="btn btn-primary" value="Späť" onclick="history.back(-1)">
+    Späť
+</button>
+
 <footer>
 
     Tímea Mokošáková, 2018

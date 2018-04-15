@@ -116,8 +116,7 @@
         </head>
         <body>
             <div>
-                <div style="display:block;margin:0px auto;">
-                    <?php if(empty($_SESSION["id"])) { ?>
+                <div style="display:block;margin:0px auto;"><?php if(empty($_SESSION["id"])) { ?>
                     <form action="" method="post" id="frmLogin">
                         <div class="error-message"><?php if(isset($message)) { echo $message; } ?></div>
                         <div class="field-group">
@@ -131,12 +130,11 @@
                         <div class="field-group">
                             <div><input type="submit" name="login" value="Login" class="form-submit-button"></span></div>
                         </div>
-                    </form>
-                <?php
-                } else {
-                $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-                $row  = mysqli_fetch_array($result);
-                ?>
+                    </form>            <?php
+            } else {
+            $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+            $row  = mysqli_fetch_array($result);
+            ?>
                     <form action="" method="post" id="frmLogout">
                         <div class="member-dashboard">
                             Welcome <?php echo ucwords($row['display_name']); ?>, You have successfully logged in!<A href="Update.php"> Zmena  </A> <br>
@@ -144,12 +142,13 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <?php } ?>
+            </div><?php } ?>
 
 
-            
 
+            <button type="submit" name="submit" class="btn btn-primary" value="Späť" onclick="history.back(-1) action >
+                Späť
+            </button>
 
         </body>
     </html>
