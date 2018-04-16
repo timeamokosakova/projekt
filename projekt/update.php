@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(isset($_POST['update']))
 {
     $servername = "localhost";
@@ -54,19 +54,19 @@ if(isset($_POST['update']))
         
     
         <form action="update.php" method="post">
-            Sledovacie ��slo,ktor� ideme aktualizova�:
+            Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
-            <input type="number" name="id" required id="id"  placeholder="Sledovacie ��slo">
+            <input type="number" name="id" required id="id"  placeholder="Sledovacie číslo">
             <br />
             <br />
 
-            Nov� stav:
+            Nový stav:
             <br>
             <input type="text" name="stav" required id="stav"  placeholder="Stav">
             <br />
 
 
-            <button type="submit" class="btn btn-primary" data-toggle="modal" value="update"> Odosla� </button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" value="update"> Odoslané </button>
         </form>
 
         <br>
@@ -89,7 +89,7 @@ if(isset($_POST['update']))
 
 <footer>
 
-    T�mea Mokošáková, 2018
+    Tímea Mokošáková, 2018
 
 </footer>
 
