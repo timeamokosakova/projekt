@@ -8,17 +8,17 @@ $dbname = "projekt";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $message="";
 if(!empty($_POST["Prihlásenie"])) {
-$result = mysqli_query($conn,"SELECT * FROM login WHERE user='" . $_POST["user"] . "' and password = '". $_POST["password"]."'");
-$row  = mysqli_fetch_array($result);
-if(is_array($row)) {
-$_SESSION["id"] = $row['id'];
-} else {
-$message = "Neplatné heslo!";
-}
+    $result = mysqli_query($conn,"SELECT * FROM login WHERE user='" . $_POST["user"] . "' and password = '". $_POST["password"]."'");
+    $row  = mysqli_fetch_array($result);
+    if(is_array($row)) {
+        $_SESSION["id"] = $row['id'];
+    } else {
+        $message = "Neplatné heslo!";
+    }
 }
 if(!empty($_POST["Odhlásenie"])) {
-$_SESSION["id"] = "";
-session_destroy();
+    $_SESSION["id"] = "";
+    session_destroy();
 }
 ?>
 
@@ -67,18 +67,15 @@ session_destroy();
                     display: inline-block;
                     border-radius: 4px;
                 }
-
                 .field-group {
                     margin: 15px 0px;
                 }
-
                 .input-field {
                     padding: 8px;
                     width: 200px;
                     border: #A3C3E7 1px solid;
                     border-radius: 4px;
                 }
-
                 .form-submit-button {
                     background: #65C370;
                     border: 0;
@@ -87,7 +84,6 @@ session_destroy();
                     color: #FFF;
                     text-transform: uppercase;
                 }
-
                 .member-dashboard {
                     padding: 40px;
                     background: #D2EDD5;
@@ -96,7 +92,6 @@ session_destroy();
                     display: inline-block;
                     text-align: center;
                 }
-
                 .logout-button {
                     color: #09F;
                     text-decoration: none;
@@ -105,12 +100,10 @@ session_destroy();
                     padding: 0px;
                     cursor: pointer;
                 }
-
                 .error-message {
                     text-align: center;
                     color: #FF0000;
                 }
-
                 .demo-content label {
                     width: auto;
                 }
@@ -135,10 +128,10 @@ session_destroy();
                     </form>
                 </div>
             </div>    <?php
-    } else {
-    $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-    $row  = mysqli_fetch_array($result);
-    ?>
+                                                                  } else {
+                                                                      $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+                                                                      $row  = mysqli_fetch_array($result);
+                      ?>
 
             <form action="" method="post" id="frmLogout">
                 <div class="member-dashboard">
