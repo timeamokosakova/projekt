@@ -28,6 +28,8 @@ session_destroy();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
     <title>Doručovacia služba</title>
 </head>
@@ -131,23 +133,21 @@ session_destroy();
                             <div><input type="submit" name="Prihlásenie" value="Prihlásenie" class="form-submit-button"></span></div>
                         </div>
                     </form>
-                 </div>   
                 </div>
-            
-                    <?php
-                    } else {
-                    $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-                    $row  = mysqli_fetch_array($result);
-                    ?>
+            </div>    <?php
+    } else {
+    $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+    $row  = mysqli_fetch_array($result);
+    ?>
 
-                    <form action="" method="post" id="frmLogout">
-                        <div class="member-dashboard">
-                            Vitaj <?php echo ucwords($row['display_name']); ?>, Si úspešne prihlasený!
-                            <p><A href="Update.php"> Zmena  </A> <br></p>
-                            Klikni na  <input type="submit" name="Odhlásenie" value="Odhlásenie" class="logout-button">.
-                        </div>
-                    </form>
+            <form action="" method="post" id="frmLogout">
+                <div class="member-dashboard">
+                    Vitaj <?php echo ucwords($row['display_name']); ?>, Si úspešne prihlasený!
+
+                    Klikni na  <input type="submit" name="Odhlásenie" value="Odhlásenie" class="logout-button">.
                 </div>
+            </form>   <center><p><A href="Update.php"> Zmena  </A> <br></p></center>
+        </div>
             </div><?php } ?>
 
 
