@@ -1,23 +1,24 @@
+
 <?php
 if(isset($_POST['update']))
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "projekt";
-    $connect = mysqli_connect($servername, $username, $password, $dbname);
-    //pridanie
-    $id = $_POST['id'];
-    $stav = $_POST['stav'];
-    // zmena
-    $query = "UPDATE `ob` SET `id`='".$id."',`stav`='".$stav."' WHERE `id` = $id";
-    $result = mysqli_query($connect, $query);
-    if($result)
-    {
-        echo 'Data boli aktualizované';
-    }else
-    {echo "data neboli aktualizované";}
-    mysqli_close($connect);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "projekt";
+$connect = mysqli_connect($servername, $username, $password, $dbname);
+//pridanie
+$id = $_POST['id'];
+$stav = $_POST['stav'];
+// zmena
+$query = "UPDATE `ob` SET `id`='".$id."',`stav`='".$stav."' WHERE `id` = $id";
+$result = mysqli_query($connect, $query);
+if($result)
+{
+echo 'Data boli aktualizované';
+}else
+{echo "data neboli aktualizované";}
+mysqli_close($connect);
 }
 ?>
 
@@ -50,19 +51,19 @@ if(isset($_POST['update']))
 
 <body>
 
-    <DIV class="hlavna ">    
-        
-    
+    <DIV class="hlavna ">
+
+
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
-            <input type="number" name="id" required id="id"  placeholder="Sledovacie číslo">
+            <input type="number" name="id" required id="id" placeholder="Sledovacie číslo">
             <br />
             <br />
 
             Nový stav:
             <br>
-            <input type="text" name="stav" required id="stav"  placeholder="Stav">
+            <input type="text" name="stav" required id="stav" placeholder="Stav">
             <br />
 
 
@@ -71,7 +72,7 @@ if(isset($_POST['update']))
 
         <br>
 
-      
+
     </DIV>
 
     <a href="ez.php">
