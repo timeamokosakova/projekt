@@ -23,6 +23,7 @@
     <Compile Include="ob.php" />
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
+    <Compile Include="Script1.php" />
     <Compile Include="sz.php" />
     <Compile Include="update.php" />
   </ItemGroup>

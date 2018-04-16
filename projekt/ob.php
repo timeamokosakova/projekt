@@ -1,41 +1,4 @@
-﻿
-<?php $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "projekt";
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-      //pripojenie sa na databazu
-      $menoo = mysqli_real_escape_string($conn, $_POST['menoo']);
-      $priezo = mysqli_real_escape_string($conn, $_POST['priezo']);
-      $menoa = mysqli_real_escape_string($conn, $_POST['menoa']);
-      $prieza = mysqli_real_escape_string($conn, $_POST['prieza']);
-      $ulica = mysqli_real_escape_string($conn, $_POST['ulica']);
-      $cd = mysqli_real_escape_string($conn, $_POST['cd']);
-      $obec = mysqli_real_escape_string($conn, $_POST['obec']);
-      $psc = mysqli_real_escape_string($conn, $_POST['psc']);
-      $stat = mysqli_real_escape_string($conn, $_POST['stat']);
-      $druh = mysqli_real_escape_string($conn, $_POST['druh']);
-      $cena = mysqli_real_escape_string($conn, $_POST['cena']);
-      $stav = mysqli_real_escape_string($conn, $_POST['stav']);
-      $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena, stav)
-        VALUES ('$menoo','$priezo','$menoa','$prieza','$ulica','$cd','$obec','$psc','$stat','$druh','$cena','Spracovane')";
-      
-      if($conn->query($sql) === true  ){
-          echo "problém";
-      }
-      else
-      {
-          echo "Error" . $sql . "<br/>" . $conn->error;
-      }
-      $conn->close();
-?> 
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8">
@@ -63,130 +26,116 @@
 
 
 <body>
-
-
     <DIV class="hlavna ">
-        <div class="form-group row">
+        <form method="post" action="ob.php">
+
+            <div class="form-group row">
+                <label for="Odosielateľ " class="col-sm-2 col-form-label"> Odosielateľ:  </label>
+            </div>
+
+            <div class="form-group">
+                <label for="menoo">Meno </label>
+                <input type="text" class="form-control" required id="menoo" name="menoo" placeholder="Meno odosielateĺa">
+                <label for="priezo">Priezvisko </label>
+                <input type="text" class="form-control"required id="priezo" name="priezo" placeholder="Priezvisko odosielateĺa">
+            </div>
+
+            <div class="form-group row">
+                <label for="Adresát " class="col-sm-2 col-form-label"> Adresát:  </label>
+            </div>
+            <div class="form-group">
+                <label for="menoa">Meno adresáta </label>
+                <input type="text" class="form-control"  required id="menoa" name="menoa" placeholder="Meno adresáta">
+                <label for="prieza"> Priezvisko adresáta </label>
+                <input type="text" class="form-control" required id="prieza" name="prieza" placeholder="Priezvisko ">
+            </div>
 
 
-            <form method="post" action="ob.php">
-                <table>
-
-                    <tr>
-                        <br>
-
-
-                        <td>  <B><I>Odosielateľ: </I> </B> </td>
-                        <br>
-                        <td>
-                            <div style="position: relative; top: -30px; left: 10px">
-                                <b>Meno: </b> <input type="text" name="menoo" id="menoo" value="<?php echo $menoo;?>" placeholder="Meno odosielateľa">
-
-
-                                <b>Priezvisko: </b> <input type="text" name="priezo" id="priezo" value="<?php echo $priezo;?>" placeholder="Priezvisko odosielateľa">
-
-                            </div>
-                        </td>
-                    </tr>
+            <div class="form-group row">
+                <label for="adresa " class="col-sm-2 col-form-label"> Adresa:  </label>
+            </div>
+            <div class="form-group">
+                <label for="ulica"> Ulica  </label>
+                <input type="text" class="form-control" required id="ulica" name="ulica" placeholder="Ulica">
+                <label for="cd">Číslo domu </label>
+                <input type="number" class="form-control" required id="cd" name="cd" placeholder="Číslo domu">
+                <label for="obec">Obec </label>
+                <input type="text" class="form-control" required id="obec" name="obec" placeholder="Obec">
+                <label for="psc"> Psč </label>
+                <input type="number" class="form-control" required id="psc" name="psc" placeholder="Psč">
+                <label for="stat"> Štát </label>
+                <input type="text" class="form-control" required id="stat" name="stat" placeholder="Štát">
+            </div>
 
 
-                    <br>
-
-                    <tr>
-                        <td><B> <I>Adresát:</I> </B></td>
-                        <br>
-                        <td>
-                            <div style="position: relative; top: -30px; left: 10px">
-                                <b>Meno: </b> <input type="text" name="menoa" id="menoa" value="<?php echo $menoa;?>" placeholder="Meno adresáta">
-
-
-                                <b>Priezvisko: </b> <input type="text" name="prieza" id="prieza" value="<?php echo $prieza;?>" placeholder="Priezvisko adresáta">
-
-                            </div>
-                        </td>
-                    
+            <div class="form-group row">
+                <label for="zasielka " class="col-sm-2 col-form-label"> Druh zásielky:  </label>
+            </div>
+            <div class="form-group">
+                <label for="druh">Druh </label>
+                <input type="text" class="form-control" required id="druh" name="druh" placeholder="Druh">
+                <label for="cena">Cena </label>
+                <input type="integer" class="form-control" required id="cena" name="cena" placeholder="Cena je povinná s .">
+            </div>
 
 
-                    <tr>
-                        <td>  <B> <I>Adresa zásielky: </I> </B> </td>
 
-                        <td>
-                            <div style="position: relative; top: -30px; left: 100px">
-                                <b>Ulica: </b>  <input type="text" name="ulica" id="ulica" value="<?php echo $ulica;?>" placeholder="Ulica">   <b>Číslo domu: </b>  <input type="number" name="cd" id="cd" value="<?php echo $cd;?>" placeholder="Číslo domu">
-                            </div>
-                        </td>
+            <center>
+                <button type="submit" class="btn btn-primary" required id="submit" data-toggle="modal"  name ="submit" value="submit"> Odoslať </button>
+            </center>
 
-                
+        </form>
+    </DIV>
 
 
-                    <tr>
-                        <td>
-                            <div style="position: relative; top: -30px; left:100px;">
-                                <b>Obec/Mesto: </b>  <input type="text" name="obec" id="obec" value="<?php echo $obec;?>" placeholder="Mesto">   <b>Psč: </b>  <input type="number" name="psc" id="psc" value="<?php echo $psc;?>" placeholder="Psč">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div style="position: relative; top: -30px;  left:100px;">
-                                <b>Štát:</b> <input type="text" name="stat" id=" stat" value="<?php echo $stat;?>" placeholder="Štát">
-                                <br>
-                            </div>
-                        </td>
-                    </tr>
+        <div class=" tab">          
 
+            <?php 
+            if(isset($_POST["submit"])){
 
-                    <tr>
-                        <td>
-                            <div style="position: relative; top: -30px; left:10px">
-                                <b>Druh zásielky:</b> <input type="text" name="druh" id="druh" value="<?php echo $druh;?>" placeholder="Druh zásielky">
-                                <b>Cena:</b> <input type="text" name="cena" id="cena" value="<?php echo $cena;?>" placeholder="Cena">
-                            </div>
-                        </td>
-                    </tr>
-                 </tr>
-                </table>
-                <center>
-                    <button type="submit" class="btn btn-primary" data-toggle="modal" value="Odoslať"> Odoslať </button>
-                </center>
-            </form>
-
- </div>
-    
-        <div class=" tab">
-            <style>
-                table, th, td {
-                    border: 1px solid black;
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "projekt";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-            </style>  
-            <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "projekt";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT id FROM ob LIMIT 1 ";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-    echo "<tr><td>" . $row["id"]. "</td></tr>";
-    }
-    echo "</table>";
-    } else {
-    echo "0 results";
-    }
-    $conn->close();
-    ?>
+                
+                $menoo = mysqli_real_escape_string($conn, $_POST['menoo']);
+                $priezo = mysqli_real_escape_string($conn, $_POST['priezo']);
+                $menoa = mysqli_real_escape_string($conn, $_POST['menoa']);
+                $prieza = mysqli_real_escape_string($conn, $_POST['prieza']);
+                $ulica = mysqli_real_escape_string($conn, $_POST['ulica']);
+                $cd = mysqli_real_escape_string($conn, $_POST['cd']);
+                $obec = mysqli_real_escape_string($conn, $_POST['obec']);
+                $psc = mysqli_real_escape_string($conn, $_POST['psc']);
+                $stat = mysqli_real_escape_string($conn, $_POST['stat']);
+                $druh = mysqli_real_escape_string($conn, $_POST['druh']);
+                $cena = mysqli_real_escape_string($conn, $_POST['cena']);
+                
+                $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena, stav)
+        VALUES ('$menoo','$priezo','$menoa','$prieza','$ulica','$cd','$obec','$psc','$stat','$druh','$cena','Spracovane')";
+                
+                if($conn->query($sql) === true  ){
+                    $last_id = $conn->insert_id;
+                    echo "Sledovacie číslo je: ".$last_id;
+                }
+                else
+                {
+                    echo "Error" . $sql . "<br/>" . $conn->error;
+                }
+                
+                $conn->close(); 
+            }
+            ?> 
+
+
         </div>
 
-  
+
         <button type="submit" name="submit" class="btn btn-primary" value="Späť" onclick="history.back(-1)">
             Späť
         </button>
@@ -204,4 +153,6 @@
 </footer>
 
 </html>
+
+
 
