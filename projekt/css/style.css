@@ -36,6 +36,12 @@ footer {
     font-size: 30px;
 }
 
+.tab th,td {
+border: 1px solid black;
+
+
+
+}
 
 .hlavna {
     font-family: Times New Roman;

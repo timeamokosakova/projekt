@@ -16,7 +16,6 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="conn.php" />
     <Compile Include="cont.php" />
     <Compile Include="ez.php" />
     <Compile Include="index.php" />
