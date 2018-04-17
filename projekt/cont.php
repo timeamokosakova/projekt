@@ -1,40 +1,47 @@
 <?php
-$action=$_REQUEST['action'];
-if ($action=="")    /* display the contact form */
-{
-?>
-<form action="cont.php" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="action" value="submit" />
-    Your name:
-    <br />
-    <input name="name" type="text" value="" size="30" />
-    <br />
-    Your email:
-    <br />
-    <input name="email" type="text" value="" size="30" />
-    <br />
-    Your message:
-    <br />
-    <textarea name="message" rows="7" cols="30"></textarea>
-    <br />
-    <input type="submit" value="Send email" />
-</form>
-<?php
-}
-else                /* send the submitted data */
-{
-    $name=$_REQUEST['name'];
-    $email=$_REQUEST['email'];
-    $message=$_REQUEST['message'];
-    if (($name=="")||($email=="")||($message==""))
+
+
+if  (isset($_POST["name"]) && isset ($_POST["email"]) && isset ($_POST["text"])) {
+
+    $name = $_POST["name"];
+     $email = $_POST["email"];
+ $text = $_POST["text"];
+
+    if (!empty($name) || !empty($email) || !empty ($text))
     {
-		echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+        $to = "timea.mokosakova@gmail.com";
+        $subject = "Kontaktný formulár";
+        $body = $name. "\n".$text;
+        $headers = "From: ".$email ;
+
+        if(mail($to,$subject, $body, $headers)){
+            
+            echo "Vďaka za kontaktovanie";
+        }
+        else{
+            echo "Error";
+
+        }
+
     }
-    else{
-	    $from="From: $name<$email>\r\nReturn-path: $email";
-        $subject="Message sent using your contact form";
-		// mail("timea.mokosakova@gmail.com", $subject, $message, $from);
-		echo "Email sent!";
-	    }
+    else {
+        echo "Položky sú prázdne";  
+
     }
+
+}
 ?>
+
+
+<form action="cont.php" method="POST">
+Name : <input type="text" name="name" >
+    <br />
+    Email adress: <input type="text" name="email" >
+    <br />
+    message :
+    <br />
+    <textarea name="text" rows="6" cols="30"></textarea>
+    <input type="submit" value="send" >
+
+
+</form>
