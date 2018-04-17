@@ -22,7 +22,7 @@ if(filter_has_var(INPUT_POST, 'submit')){
             // pridaný
             $toEmail = 'timea.mokosakova@gmail.com';
             $subject = 'Kontaktoval vás: ' .$name;
-            $body = '<h2>Žiadosť </h2>;
+            $body = '<h2>Žiadosť </h2>
 					<h4>Meno</h4><p>'.$name.' </p>
 					<h4>Email</h4><p>'.$email.'</p>
 					<h4>Správa<h4><p>'.$message.'</p>

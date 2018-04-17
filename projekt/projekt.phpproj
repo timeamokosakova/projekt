@@ -22,6 +22,7 @@
     <Compile Include="ob.php" />
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
+    <Compile Include="pages\foot.php" />
     <Compile Include="pages\head.php" />
     <Compile Include="sz.php" />
     <Compile Include="update.php" />

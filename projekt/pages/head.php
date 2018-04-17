@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Doruèovacia služba</title>
+   <title>DoruÄovacia sluÅ¾ba</title>
 </head>
 
 <a href="index.php">
@@ -17,12 +17,12 @@
 
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row">
 
-    <a class="nav-item flex-sm-fill text-sm-center nav-link active" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class=" nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="ospol.php"> O spoloènosti</A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="OB.php"> Zásielka </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="SZ.php"> Sledovanie zásielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="EZ.php"> Správa zásielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link disabled" HREF="kontakt.php"> Kontakt</A>
+    <a class="nav-item flex-sm-fill text-sm-center nav-link " href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
+    <A class=" nav-item flex-sm-fill text-sm-center nav-link " HREF="ospol.php"> O spoloÄnosti</A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> ZÃ¡sielka </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie zÃ¡sielok </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="EZ.php"> SprÃ¡va zÃ¡sielok </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="kontakt.php"> Kontakt</A>
 
 </nav>
 
