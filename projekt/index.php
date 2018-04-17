@@ -1,4 +1,4 @@
-
+Ôªø
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>DoruËovacia sluûba</title>
+    <title>Doruƒçovacia slu≈æba</title>
 </head>
 
 <a href="index.php">
@@ -20,10 +20,10 @@
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row">
 
     <a class="nav-item  flex-sm-fill text-sm-center nav-link active" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoloËnosti</A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> Z·sielka </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie z·sielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="EZ.php"> Spr·va z·sielok </A>
+    <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoloƒçnosti</A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> Z√°sielka </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie z√°sielok </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="EZ.php"> Spr√°va z√°sielok </A>
     <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="kontakt.php"> Kontakt</A>
 
 </nav>

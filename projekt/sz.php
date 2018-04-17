@@ -45,7 +45,9 @@
 
             <center>
                 <button type="submit" class="btn btn-primary" required id="submit" data-toggle="modal" name="submit" value="submit"> Odoslať </button>
-            </center>            <?php
+            </center>          
+            
+            <?php
             if(isset($_POST["submit"])){
             $servername = "localhost";
             $username = "root";
