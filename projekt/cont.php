@@ -20,7 +20,7 @@ if(filter_has_var(INPUT_POST, 'submit')){
             $msgClass = 'alert-danger';
         } else {
             // pridaný
-            $toEmail = 'timea.mokosakova@gmail.com';
+            $toEmail = 'petulik608@azet.sk';
             $subject = 'Kontaktoval vás: ' .$name;
             $body = '<h2>Žiadosť </h2>;
 					<h4>Meno</h4><p>'.$name.' </p>
