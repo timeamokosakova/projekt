@@ -28,7 +28,7 @@ if(filter_has_var(INPUT_POST, 'submit')){
 					<h4>Správa<h4><p>'.$message.'</p>
 				';
 
-            // Email Headers
+            // Email hlavička
             $headers = "MIME-Version: 1.0" ."\r\n";
             $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
 

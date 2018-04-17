@@ -128,9 +128,9 @@ if(!empty($_POST["Odhlásenie"])) {
                     </form>
                 </div>
             </div>    <?php
-                                                                  } else {
-                                                                      $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-                                                                      $row  = mysqli_fetch_array($result);
+                       } else {
+                             $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+                             $row  = mysqli_fetch_array($result);
                       ?>
 
             <form action="" method="post" id="frmLogout">
@@ -139,7 +139,9 @@ if(!empty($_POST["Odhlásenie"])) {
 
                     Klikni na  <input type="submit" name="Odhlásenie" value="Odhlásenie" class="logout-button">.
                 </div>
-            </form>   <center><p><A href="Update.php"> Zmena  </A> <br></p></center>
+            </form>   
+            <br/>
+            <center><p><A href="Update.php"> Zmena  </A> <br></p></center>
         </div>
             </div><?php } ?>
 
