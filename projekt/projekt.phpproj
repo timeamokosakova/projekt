@@ -22,11 +22,13 @@
     <Compile Include="ob.php" />
     <Compile Include="ospol.php" />
     <Compile Include="kontakt.php" />
+    <Compile Include="pages\head.php" />
     <Compile Include="sz.php" />
     <Compile Include="update.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
+    <Folder Include="pages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\style.css" />

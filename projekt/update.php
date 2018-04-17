@@ -14,7 +14,7 @@
 
           
                 
-                $sql = "update ob  set ob  WHERE `stav` = $stav";
+                $sql = "update stav  set ob  WHERE `stav` = $stav";
                 
                  if ($conn->query($sql) === TRUE) {
             echo "Record updated successfully";
