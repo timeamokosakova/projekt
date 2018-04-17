@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label for="menoo">Sledovacie číslo </label>
                 <input type="text" class="form-control" required id="id" name="id" placeholder="Číslo">
-                <label for="stav"><?php echo $stav ?> </label>
+                <label for="Vaša zásielka je vstave: "><?php echo $stav ?> </label>
             </div>
 
             <center>

@@ -1,26 +1,32 @@
+       <?php
 
-<?php
-if(isset($_POST['update']))
-{
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "projekt";
-$connect = mysqli_connect($servername, $username, $password, $dbname);
-//pridanie
-$id = $_POST['id'];
-$stav = $_POST['stav'];
-// zmena
-$query = "UPDATE `ob` SET `id`='".$id."',`stav`='".$stav."' WHERE `id` = $id";
-$result = mysqli_query($connect, $query);
-if($result)
-{
-echo 'Data boli aktualizované';
-}else
-{echo "data neboli aktualizované";}
-mysqli_close($connect);
+            if(isset($_POST["update"])){
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "projekt";
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+          
+                
+                $sql = "update ob  set ob  WHERE `stav` = $stav";
+                
+                 if ($conn->query($sql) === TRUE) {
+            echo "Record updated successfully";
+}           else {
+             echo "Error updating record: " . $conn->error;
 }
+
+$conn->close();
 ?>
+
+
+
 
 <!DOCTYPE html>
 
@@ -67,7 +73,7 @@ mysqli_close($connect);
             <br />
 
 
-            <button type="submit" class="btn btn-primary" data-toggle="modal" value="update"> Odoslané </button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal"  value="update"> Odoslané </button>
         </form>
 
         <br>
