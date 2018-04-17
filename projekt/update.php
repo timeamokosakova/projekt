@@ -30,26 +30,30 @@
 
     <?php
     if(isset($_POST["submit"])){
-        $mysqli = new mysqli("localhost", "root", "", "projekt");
-        
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "projekt";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
-        if($mysqli === false){
-            die("ERROR: Could not connect. " . $mysqli->connect_error);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
-        
-       
-        $stav= mysqli_real_escape_string($conn, $_POST['stav']);
-        
-        // Attempt update query execution
-        $sql = "UPDATE ob SET stav='$stav' ";
-        if($mysqli->query($sql) === true){
-            echo "Records were updated successfully.";
-        } else{
-            echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+
+        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+
+        $sql = "UPDATE `ob` SET `stav`=$stav WHERE `id`=$id";
+        if($conn->query($sql) === true  ){
+           
+            echo "pridané";
         }
-        
-        // Close connection
-        $mysqli->close();
+        else
+        {
+            echo "Error" . $sql . "<br/>" . $conn->error;
+        }
+        $conn->close();
     }
     ?>
 
@@ -57,26 +61,24 @@
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
-            <input type="number" name="id" required id="id" 
-                   placeholder="Sledovacie číslo">
+            <input type="number" name="id" required id="id" value="<?php echo $id ?>" placeholder="Sledovacie číslo">
             <br />
             <br />
 
             Nový stav:
             <br>
-            <input type="text" name="stav" required id="stav" value="<?php echo $stav; ?>" placeholder="Stav">
+            <input type="text" name="stav" required id="stav"  placeholder="Stav">
             <br />
 
 
-            <button type="submit" class="btn btn-primary" data-toggle="modal" value="update"> Odoslané </button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" value="submit"> Odoslané </button>
         </form>
 
         <br>
 
 
             <?php
-            /* Attempt MySQL server connection. Assuming you are running MySQL
-            server with default setting (user 'root' with no password) */
+        
             $mysqli = new mysqli("localhost", "root", "", "projekt");
             
             // Check connection
