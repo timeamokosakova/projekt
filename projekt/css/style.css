@@ -47,7 +47,7 @@ footer {
 .hlavna {
     font-family: Times New Roman;
     width: 1500px;
-    height: 500px;
+    height: auto;
     border: 4px groove;
     padding-top: 50px;
     padding-right: 10px;

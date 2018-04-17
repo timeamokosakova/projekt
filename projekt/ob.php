@@ -60,8 +60,7 @@
         </form>
     </DIV>
 
-
-        <div class=" tab">          
+      
 
             <?php 
             if(isset($_POST["submit"])){
@@ -106,7 +105,7 @@
             ?> 
 
 
-        </div>
+     
 
 
      <?php include('pages/foot.php') ?>

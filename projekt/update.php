@@ -1,8 +1,8 @@
 <?php include('pages/head.php') ?>
 
-    <DIV class="hlavna ">
+  
 
-
+   <DIV class="hlavna">
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
