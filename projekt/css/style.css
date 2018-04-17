@@ -13,16 +13,22 @@ body {
 }
 
 .nav-fill {
-    background-color:lightskyblue;
+    background-color: lightskyblue;
     font-family: "Times New Roman";
     font-size: 30px;
     text-decoration: NONE;
     padding: 4px;
     text-align: center;
-    width: auto;
+    width: 1500px;
     height: 70px;
+ 
+    
+  
+    margin-top: 0px;
+    margin-bottom: 1px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
-
 
 
 DIV {
@@ -36,87 +42,25 @@ footer {
     font-size: 30px;
 }
 
-.tab th,td {
-border: 1px solid black;
 
-
-
-}
 
 .hlavna {
     font-family: Times New Roman;
-    width: auto;
-    height: auto;
-    margin: 2px;
+    width: 1500px;
+    height: 500px;
     border: 4px groove;
+    padding-top: 50px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
-. menu A, A:link, A:visited {
-    font-family: "Times New Roman";
-    font-size: 30px;
-    text-decoration: NONE;
-    padding: 4px;
-    text-align: center;
-
-     
-}
 
 
 
-td a {
-    display: inline;
-    color: #ffffff;
-    padding: 1px 1px;
-    text-decoration: none;
-    border-radius: 5px 2px;
-}
-
-tr a:hover:not(.active) {
-    background-color: #703232;
-    color: white;
-    border-radius: 55px 55px;
-    box-shadow: 3px 3px #edaaaa;
-    font-style: italic;
-    display: inline;
-}
-
-input[type=text] {
-    box-sizing: border-box;
-    border: 2px solid #000000;
-    border-radius: 4px;
-    transition-timing-function: ease-in-out;
-    cursor: text;
-    position: relative;
-    right: 0px;
-    top: -5px;
-}
-
-    input[type=text]:focus {
-        background-color: white;
-    }
-
-
-input[type=number] {
-    box-sizing: border-box;
-    border: 2px solid #000000;
-    border-radius: 4px;
-    transition-timing-function: ease-in-out;
-    cursor: text;
-    right: 0px;
-    top: -5px;
-}
-
-    input[type=number]:focus {
-        background-color: white;
-    }
-
-INPUT[type=submit] {
-    background-color: buttonface;
-    color: windowtext;
-    border: 4px outset;
-    Border-top-color: buttonhighlight;
-    border-left-color: buttonhighlight;
-    Border-bottom-color: buttonshadow;
-    border-right-color: buttonshadow;
-}
+ 

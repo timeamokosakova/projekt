@@ -26,7 +26,7 @@ session_destroy();
 <?php include('pages/head.php') ?>
 
 
-<DIV class="hlavna">
+
 
 
 
@@ -36,14 +36,15 @@ session_destroy();
         <style>
             #frmLogin {
                 padding: 20px 60px;
-                background: #B6E0FF;
+                background: #15639b;
                 color: #555;
                 display: inline-block;
-                border-radius: 4px;
+                border-radius: 2px;
             }
 
             .field-group {
                 margin: 15px 0px;
+
             }
 
             .input-field {
@@ -90,7 +91,7 @@ session_destroy();
             }
         </style>
 
-
+<center>
         <div>
             <div style="display:block;margin:0px auto;"><?php if(empty($_SESSION["id"])) { ?>
                 <form action="" method="post" id="frmLogin">
@@ -122,11 +123,19 @@ session_destroy();
             </div>
         </form>
         <br />
+
+
         <center><p><A href="Update.php"> Zmena  </A> <br></p></center>
     </div>
-</DIV><?php } ?>
+</DIV>
+
+
+<?php } ?>
 
 
 
         </div>
-</DIV><?php include('pages/foot.php') ?>
+
+
+</center>
+<?php include('pages/foot.php') ?>

@@ -10,7 +10,7 @@
 </head>
 
 <a href="index.php">
-    <img src="log.JPG" style="width:10%;height:40px">
+    <img src="LOG.PNG" style="width:10%;height:40px">
 </a>
 
 

@@ -1,96 +1,40 @@
 <?php
-// hodnoty správy
-$msg = '';
-$msgClass = '';
-
-// pre odoslanie
-if(filter_has_var(INPUT_POST, 'submit')){
-    // hodnoty dát
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-
-    // položka
-    if(!empty($email) && !empty($name) && !empty($message)){
-       
-        // Email
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-            // polia
-            $msg = 'Neplatný email';
-            $msgClass = 'alert-danger';
-        } else {
-            // pridaný
-            $toEmail = 'timea.mokosakova@gmail.com';
-            $subject = 'Kontaktoval vás: ' .$name;
-            $body = '<h2>Žiadosť </h2>
-					<h4>Meno</h4><p>'.$name.' </p>
-					<h4>Email</h4><p>'.$email.'</p>
-					<h4>Správa<h4><p>'.$message.'</p>
-				';
-
-            // Email hlavička
-            $headers = "MIME-Version: 1.0" ."\r\n";
-            $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
-
-            
-            $headers .= "From: " .$name. "<".$email.">". "\r\n";
-
-            if(mail($toEmail, $subject, $body, $headers)){
-                // Email poslaný
-                $msg = 'EMAIL bol poslaný';
-                $msgClass = 'alert-success';
-            } else {
-                // neposlaný
-                $msg = 'Email nebol poslaný';
-                $msgClass = 'alert-danger';
-            }
-        }
-    } else {
-        // zle
-        $msg = 'Vyplnte všetky položky';
-        $msgClass = 'alert-danger';
-    }
-}
+$action=$_REQUEST['action'];
+if ($action=="")    /* display the contact form */
+{
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Doručovacia služba </title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
-</head>
-<body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="kontakt.php">Späť na kontakt </a>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <?php if($msg != ''): ?>
-        <div class="alert <?php echo $msgClass; ?>">
-            <?php echo $msg; ?>
-        </div>
-        <?php endif; ?>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="form-group">
-                <label>Meno</label>
-                <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>" />
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>" />
-            </div>
-            <div class="form-group">
-                <label>Správa </label>
-                <textarea name="message" class="form-control">
-                    <?php echo isset($_POST['message']) ? $message : ''; ?>
-                </textarea>
-            </div>
-            <br />
-            <button type="submit" name="submit" class="btn btn-primary">Odoslať  </button>
-        </form>
-    </div>
-</body>
-</html>
+<form action="cont.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="submit" />
+    Your name:
+    <br />
+    <input name="name" type="text" value="" size="30" />
+    <br />
+    Your email:
+    <br />
+    <input name="email" type="text" value="" size="30" />
+    <br />
+    Your message:
+    <br />
+    <textarea name="message" rows="7" cols="30"></textarea>
+    <br />
+    <input type="submit" value="Send email" />
+</form>
+<?php
+}
+else                /* send the submitted data */
+{
+    $name=$_REQUEST['name'];
+    $email=$_REQUEST['email'];
+    $message=$_REQUEST['message'];
+    if (($name=="")||($email=="")||($message==""))
+    {
+		echo "All fields are required, please fill <a href=\"\">the form</a> again.";
+    }
+    else{
+	    $from="From: $name<$email>\r\nReturn-path: $email";
+        $subject="Message sent using your contact form";
+		// mail("timea.mokosakova@gmail.com", $subject, $message, $from);
+		echo "Email sent!";
+	    }
+    }
+?>
