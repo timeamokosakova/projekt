@@ -53,4 +53,7 @@
                 </a>
 
         </div>
-    </DIV><?php include('pages/foot.php') ?>
+    </DIV>
+    
+    
+    <?php include('pages/foot.php') ?>
