@@ -1,24 +1,25 @@
 ﻿#frmLogin {
-    padding: 20px 60px;
-    background: #15639b;
-    color: #555;
+    padding: 20px 20px;
+    background: #0086b3;
+    color: BLACK;
     display: inline-block;
     border-radius: 2px;
+    margin-top: 100px;
 }
 
 .field-group {
-    margin: 15px 0px;
+    margin: 10px 10px;
 }
 
 .input-field {
-    padding: 8px;
-    width: 200px;
-    border: #A3C3E7 1px solid;
-    border-radius: 4px;
+    padding: 10px;
+    width: sm;
+    border: black 2px solid;
+    border-radius: 10px;
 }
 
 .form-submit-button {
-    background: #65C370;
+    background: blue;
     border: 0;
     padding: 8px 20px;
     border-radius: 4px;
@@ -26,13 +27,8 @@
     text-transform: uppercase;
 }
 
-.member-dashboard {
-    padding: 40px;
-    background: #D2EDD5;
-    color: #555;
-    border-radius: 4px;
-    display: inline-block;
-    text-align: center;
+.tlacidla {
+    margin-top: 100px;
 }
 
 .logout-button {
@@ -40,7 +36,7 @@
     text-decoration: none;
     background: none;
     border: none;
-    padding: 0px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -50,5 +46,6 @@
 }
 
 .demo-content label {
-    width: auto;
+    width: sm;
 }
+

@@ -83,26 +83,23 @@ session_destroy();
                     </div>
                 </form>
             </div>
-        </div>      
-    
-        
-        <?php
-        } else {
-        $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-        $row  = mysqli_fetch_array($result);
-        ?>
+        </div><?php
+    } else {
+    $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+    $row  = mysqli_fetch_array($result);
+    ?>
 
         <form action="" method="post" id="frmLogout">
-            <div class="member-dashboard">
-                Vitaj <?php echo ucwords($row['display_name']); ?>, Si úspešne prihlasený!
 
-                Klikni na  <input type="submit" name="Odhlásenie" value="Odhlásenie" class="logout-button">.
+            <div class="tlacidla"><?php echo ucwords($row['display_name']); ?>
+                <input type="submit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" name="Odhlásenie" value="Odhlásenie">
+                <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a>
+
             </div>
+
         </form>
-        <br />
-
-
-        <center><p><A href="Update.php"> Zmena  </A> <br></p></center>
+        
+    </center>
         </div>
         </DIV><?php } ?>
 
@@ -111,4 +108,7 @@ session_destroy();
         </div>
 
 
-    </center><?php include('pages/foot.php') ?>
+    </center>
+    
+    
+  

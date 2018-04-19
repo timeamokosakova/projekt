@@ -15,7 +15,7 @@
 
 
 
-<nav class="nav nav-pills nav-fill flex-column flex-sm-row">
+<nav class="nav nav-pills nav-fill flex-column flex-sm-row " table-md>
 
     <a class="nav-item  flex-sm-fill text-sm-center nav-link" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
     <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoločnosti</A>
@@ -29,7 +29,7 @@
 <body>   
 
 
-    <DIV class="hlavna">
+    <DIV class="hlavna" >
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
@@ -39,11 +39,11 @@
 
             Nový stav:
             <br>
-            <input type="text" name="stav" required id="stav" placeholder="Stav">
+            <input type="text" name="stav" required id="stav" value="<?php echo $stav ?>" placeholder="Stav">
             <br />
 
 
-            <button type="submit" class="btn btn-primary" data-toggle="modal" value="submit"> Odoslané </button>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" value="<?php echo $submit ?>"> Odoslané </button>
         </form>  
         </DIV>
 
@@ -62,6 +62,8 @@
             }
             echo "Connected successfully";
 
+
+            //písmo
             if(!$conn->set_charset ("utf8")){
                 echo ( $conn->error);
                 exit();
@@ -80,7 +82,7 @@
             $conn->close();
         }
     ?>
-    
+        </div>
     
     <?php include('pages/table.php') ?>
 
