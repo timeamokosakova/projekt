@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+//Mechanizmus, ktorý umožňuje odovzdávať identifikáciu session
 $servername = "localhost";
 $username = "root";
 $password = "";

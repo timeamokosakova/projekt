@@ -48,10 +48,8 @@
             <p>
                 <b>Instagram:</b> timeamokosakova
                 <br />
-                <a href="cont.php">
-                    Kontaktujte nás
-                </a>
-
+            <p> <b> Kontaktujte nás  </b> <a href="cont.php">  Kontaktuj </a>
+            </p>
         </div>
     </DIV>
     

@@ -33,25 +33,23 @@
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
-            <input type="number" name="id" required id="id" placeholder="Sledovacie číslo">
+            <input type="number" name="id" required id="id" value="<?php $_POST['id']?>"   placeholder="Sledovacie číslo">
             <br />
             <br />
 
             Nový stav:
             <br>
-            <input type="text" name="stav" required id="stav" value="<?php echo $stav ?>" placeholder="Stav">
+            <input type="text" name="stav" required id="stav" value="<?php $_POST['stav']?>"   placeholder="Stav">
             <br />
 
 
-            <button type="submit" class="btn btn-primary" data-toggle="modal" value="<?php echo $submit ?>"> Odoslané </button>
-
-            <a href="table.php" class="btn btn-primary" data-toggle="modal role="button" aria-pressed="true">Zmena</a>
+            <button type="submit" class="btn btn-primary" data-toggle="modal"> Odoslané </button>  <a href="table.php" class="btn btn-primary" data-toggle="modal role="button" aria-pressed="true">Späť</a>
         </form>  
         </DIV>
 
 
         <?php
-        if(isset($_POST['submit'])){
+        
             $servername = "localhost";
             $username = "root";
             $password = "";
@@ -62,7 +60,7 @@
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
-            echo "Connected successfully";
+
 
 
             //písmo
@@ -72,18 +70,26 @@
             }
 
 
-            $id = mysqli_real_escape_string($conn, $_POST['id']);
-            $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+            
+                $id = mysqli_real_escape_string($conn, $_POST['id']);
+                $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+            
+            if(isset($_POST['submit'])){
 
-            $sql = 'UPDATE ob SET stav=' .$_POST['stav'].' WHERE id='.$_POST['stav'].'';
-            if ($conn->query($sql) === TRUE) {
-                echo "Record updated successfully";
-            } else {
-                echo "Error updating record: " . $conn->error;
+                $sql = "UPDATE ob SET stav='$stav' WHERE id=$id";
+                if($conn->query($sql) === true  ){
+                    
+                    echo " pridané ";
+                }
+                else
+                {
+                    echo "Error <br/>" . $conn->error;
+                }
+                $conn->close();
             }
-            $conn->close();
-        }
-    ?>
+        ?>
+        
+       
       
     
   
