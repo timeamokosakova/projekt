@@ -44,23 +44,23 @@ $sql = "SELECT * FROM ob";
 
 
     <div ="container">
-        <table class="table table-dark table-hover">
+        <table class="table table-bordered table-md">
             <thead>
                 <tr>
-                    <th class="header">Sledovacie číslo</th>
-                    <th class="header">Meno</th>
-                    <th class="header">priezvisko</th>
-                    <th class="header">Stav</th>
+                    <th class="header"bgcolor="#0086b3" >Sledovacie číslo</th>
+                    <th class="header" bgcolor="#0086b3">Meno</th>
+                    <th class="header" bgcolor="#0086b3">priezvisko</th>
+                    <th class="header" bgcolor="#0086b3">Stav</th>
                 </tr>
             </thead>
 
             <tbody><?php while ($row = mysqli_fetch_array($result)) { ?>
                 <tr>
 
-                    <td bgcolor="#D1FFC2"><?php echo $row["id"] ?></td>
-                    <td bgcolor="#D1FFC2"><?php echo $row["menoa"] ?></td>
-                    <td bgcolor="#D1FFC2"><?php echo $row["prieza"] ?></td>
-                    <td bgcolor="#D1FFC2"><?php echo $row["stav"] ?></td>
+                    <td bgcolor="#e6edf2" > <?php echo $row["id"] ?></td>
+                    <td bgcolor="#e6edf2"><?php echo $row["menoa"] ?></td>
+                    <td bgcolor="#e6edf2"><?php echo $row["prieza"] ?></td>
+                    <td bgcolor="#e6edf2"><?php echo $row["stav"] ?></td>
                 </tr>
                 <?php } ?>
             </tbody>

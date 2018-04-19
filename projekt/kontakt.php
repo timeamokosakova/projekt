@@ -16,7 +16,7 @@
 
 
 
-<nav class="nav nav-pills nav-fill flex-column flex-sm-row">
+<nav class="nav nav-pills nav-fill flex-column flex-sm-row" >
 
     <a class="nav-item  flex-sm-fill text-sm-center nav-link" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
     <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoločnosti</A>

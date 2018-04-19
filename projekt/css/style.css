@@ -8,22 +8,21 @@ body {
     font-size: 30px;
     font-family: "Times New Roman";
     text-align: justify;
-    margin: auto;
  
+
 }
+
 
 .nav-fill {
     background-color: lightskyblue;
     font-family: "Times New Roman";
     font-size: 30px;
     text-decoration: NONE;
-    padding: 4px;
+    padding: 0px;
     text-align: center;
     width: 1500px;
-    height: 70px;
- 
-    
-  
+    height: 60px;
+    border-radius: 5px;
     margin-top: 0px;
     margin-bottom: 1px;
     margin-right: 10px;
@@ -34,6 +33,7 @@ body {
 DIV {
     margin: 4px;
     padding: 2px;
+    
 }
 
 footer {
