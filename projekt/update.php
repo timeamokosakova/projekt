@@ -46,58 +46,44 @@
             <button type="submit" class="btn btn-primary" data-toggle="modal"> Odoslané </button>  <a href="table.php" class="btn btn-primary" data-toggle="modal role="button" aria-pressed="true">Späť</a>
         </form>  
         </DIV>
-
-
         <?php
         
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "projekt";
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "projekt";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        //písmo
+        if(!$conn->set_charset ("utf8")){
+            echo ( $conn->error);
+            exit();
+        }
+        
+        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+        
+        if(isset($_POST['submit'])){
+            $sql = "UPDATE ob SET stav='$stav' WHERE id=$id";
+            if($conn->query($sql) === true  ){
+                
+                echo " pridané ";
             }
-
-
-
-            //písmo
-            if(!$conn->set_charset ("utf8")){
-                echo ( $conn->error);
-                exit();
+            else
+            {
+                echo "Error <br/>" . $conn->error;
             }
-
-
-            
-                $id = mysqli_real_escape_string($conn, $_POST['id']);
-                $stav = mysqli_real_escape_string($conn, $_POST['stav']);
-            
-            if(isset($_POST['submit'])){
-
-                $sql = "UPDATE ob SET stav='$stav' WHERE id=$id";
-                if($conn->query($sql) === true  ){
-                    
-                    echo " pridané ";
-                }
-                else
-                {
-                    echo "Error <br/>" . $conn->error;
-                }
-                $conn->close();
-            }
+            $conn->close();
+        }
         ?>
         
        
       
     
   
-
  </div>
-
     <?php include('pages/foot.php') ?>
-
-
-
-
