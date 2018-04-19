@@ -40,7 +40,6 @@
             <div class="form-group">
                 <label for="menoo">Sledovacie číslo </label>
                 <input type="text" class="form-control" required id="id" name="id" placeholder="Číslo">
-                <label for="Vaša zásielka je vstave: "><?php echo $stav ?> </label>
             </div>
 
             <center>
@@ -73,10 +72,10 @@
             if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-            echo "Objednávka je:  " . $row["stav"].  "<br>";
+            echo "Vaša objednávka sa nachádza v stave -   " . $row["stav"].  ".<br>";
             }
             } else {
-            echo "0 results";
+            echo "Sledovacie číslo nie je v zozname, objednávka bola buď doručená alebo neexistuje.";
             }
             $conn->close();
             }

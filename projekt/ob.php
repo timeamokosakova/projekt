@@ -88,6 +88,7 @@
             </center>
 
         </form>
+
     </DIV>  
     
     
@@ -125,10 +126,10 @@
 
 
     $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena, stav)
-    VALUES ('$menoo','$priezo','$menoa','$prieza','$ulica','$cd','$obec','$psc','$stat','$druh','$cena','Spracovane')";
+    VALUES ('$menoo','$priezo','$menoa','$prieza','$ulica','$cd','$obec','$psc','$stat','$druh','$cena','Spracovaná objednávka')";
     if($conn->query($sql) === true  ){
     $last_id = $conn->insert_id;
-    echo "Sledovacie číslo je: ".$last_id;
+    echo "  Sledovacie číslo je: ".$last_id. " Odporúčame si ho zapísať.";
     }
     else
     {
