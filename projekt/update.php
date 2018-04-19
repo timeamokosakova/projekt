@@ -44,6 +44,8 @@
 
 
             <button type="submit" class="btn btn-primary" data-toggle="modal" value="<?php echo $submit ?>"> Odoslané </button>
+
+            <a href="table.php" class="btn btn-primary" data-toggle="modal role="button" aria-pressed="true">Zmena</a>
         </form>  
         </DIV>
 
@@ -84,7 +86,7 @@
     ?>
       
     
-    <?php include('pages/table.php') ?>
+  
 
  </div>
 

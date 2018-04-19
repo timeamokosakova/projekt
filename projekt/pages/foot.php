@@ -8,12 +8,11 @@
 </body>
 
 
+<link rel="stylesheet" href="css/log.css">
+
 <footer>
 
-
-
-  <a class="nav-item  flex-sm-fill text-sm-center nav-link " href="https://www.facebook.com/"><span class="label label-info">Tímea Mokošáková </span></a> 
-
+        <a href="index.php" class="btn btn-primary" data-toggle="modal role="button" style="float: left; margin-left: 10px;" aria-pressed="true">Domov</a>  
 
 </footer>
 
