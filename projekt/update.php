@@ -26,37 +26,7 @@
 
 </nav>
 
-<body>
-
-    <?php 
-    if(isset($_POST['submit'])){
-    $servername = "localhost";
-    $username = "username";
-    $password = "password";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";
-
-
- 
-        $id = mysqli_real_escape_string($conn, $_POST['id']);
-            $stav = mysqli_real_escape_string($conn, $_POST['stav']);
-
-$sql = 'UPDATE ob SET stav= ' $stav' WHERE id='$id'';
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-
-$conn->close();
-    ?>
+<body>   
 
 
     <DIV class="hlavna">
@@ -74,22 +44,45 @@ $conn->close();
 
 
             <button type="submit" class="btn btn-primary" data-toggle="modal" value="submit"> Odoslané </button>
-        </form>
-
-        <br>
-
+        </form>  
+        </DIV>
 
 
+        <?php
+        if(isset($_POST['submit'])){
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "projekt";
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            echo "Connected successfully";
+
+
+            $id = mysqli_real_escape_string($conn, $_POST['id']);
+            $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+
+            $sql = 'UPDATE ob SET stav=' .$_POST['stav'].' WHERE id='.$_POST['stav'].'';
+            if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+            $conn->close();
+        }
+    ?>
+    
+    
+    <?php include('pages/table.php') ?>
 
    
-    
-    
-           
-     <?php include('pages/table.php') ?>
-    
-    
+
     <?php include('pages/foot.php') ?>
 
 
 
-   
+

@@ -88,7 +88,10 @@
             </center>
 
         </form>
-    </DIV>    <?php
+    </DIV>  
+    
+    
+    <?php
     if(isset($_POST["submit"])){
     $servername = "localhost";
     $username = "root";
@@ -123,7 +126,9 @@
     }
     $conn->close();
     }
-    ?><?php include('pages/foot.php') ?>
+    ?>
+    
+    <?php include('pages/foot.php') ?>
 
 
 

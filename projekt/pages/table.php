@@ -3,26 +3,32 @@
 
 
 <?php
-$mysqli = new mysqli("localhost", "root", "", "projekt");
-// Check connection
-if($mysqli === false){
-die("ERROR: Could not connect. " . $mysqli->connect_error);
-}
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "projekt";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Attempt select query execution
 $sql = "SELECT * FROM ob";
-if($result = $mysqli->query($sql)){
-    if($result->num_rows > 0){
 
-        echo "No records matching your query were found.";
-    }
-    else{
-        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-    }
+ if($result = $conn->query($sql)){
+     if($result->num_rows > 0){
+      
+     }
+     else{
+         echo "ERROR: $sql. " . $conn->error;
+     }
+ }
+    $conn->close();
 
-}
-$mysqli->close();
+
 ?>
 
 
