@@ -28,6 +28,32 @@
 
 <body>
 
+    <?php
+    $servername = "localhost";
+    $username = "username";
+    $password = "password";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    echo "Connected successfully";
+
+
+    if(isset($_POST['submit']))
+{
+$sql = 'UPDATE ob SET stav='$stav' WHERE id='$id '';
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+    ?>
 
 
     <DIV class="hlavna">

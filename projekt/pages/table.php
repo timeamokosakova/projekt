@@ -8,18 +8,18 @@ $mysqli = new mysqli("localhost", "root", "", "projekt");
 if($mysqli === false){
 die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
+
+
 // Attempt select query execution
 $sql = "SELECT * FROM ob";
 if($result = $mysqli->query($sql)){
-if($result->num_rows > 0){
+    if($result->num_rows > 0){
 
-while($row = $result->fetch_array())
+        echo "No records matching your query were found.";
+    }
     else{
-echo "No records matching your query were found.";
-}
-} else{
-echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-}
+        echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+    }
 
 }
 $mysqli->close();
@@ -35,25 +35,25 @@ $mysqli->close();
         <table class="table table-dark table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Sledovacie číslo</th>
-                    <th scope="col">Meno</th>
-                    <th scope="col">Priezvisko</th>
-                    <th scope="col">Stav</th>
+                    <th class="header">Sledovacie číslo</th>
+                    <th class="header">Meno</th>
+                    <th class="header">priezvisko</th>
+                    <th class="header">Stav</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php while ($row = mysqli_fetch_array($result)) { ?>
+
+            <tbody><?php while ($row = mysqli_fetch_array($result)) { ?>
                 <tr>
-      
+
                     <td bgcolor="#D1FFC2"><?php echo $row["id"] ?></td>
                     <td bgcolor="#D1FFC2"><?php echo $row["menoa"] ?></td>
                     <td bgcolor="#D1FFC2"><?php echo $row["prieza"] ?></td>
                     <td bgcolor="#D1FFC2"><?php echo $row["stav"] ?></td>
                 </tr>
-
-
+                <?php } ?>
             </tbody>
 
-        </table><?php } ?>
+        </table>
+      
     </div>
     </div>
