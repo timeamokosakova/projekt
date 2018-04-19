@@ -28,7 +28,8 @@
 
 <body>
 
-    <?php
+    <?php 
+    if(isset($_POST['submit'])){
     $servername = "localhost";
     $username = "username";
     $password = "password";
@@ -43,9 +44,11 @@
     echo "Connected successfully";
 
 
-    if(isset($_POST['submit']))
-{
-$sql = 'UPDATE ob SET stav='$stav' WHERE id='$id '';
+ 
+        $id = mysqli_real_escape_string($conn, $_POST['id']);
+            $stav = mysqli_real_escape_string($conn, $_POST['stav']);
+
+$sql = 'UPDATE ob SET stav= ' $stav' WHERE id='$id'';
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
 } else {
@@ -60,13 +63,13 @@ $conn->close();
         <form action="update.php" method="post">
             Sledovacie číslo,ktoré ideme aktualizovať:
             <br>
-            <input type="number" name="id" required id="id" VALUE="<?php echo $id?>" placeholder="Sledovacie číslo">
+            <input type="number" name="id" required id="id" placeholder="Sledovacie číslo">
             <br />
             <br />
 
             Nový stav:
             <br>
-            <input type="text" name="stav" required id="stav"  VALUE="<?php echo $stav?>"placeholder="Stav">
+            <input type="text" name="stav" required id="stav" placeholder="Stav">
             <br />
 
 
