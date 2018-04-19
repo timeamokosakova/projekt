@@ -1,4 +1,11 @@
 <?php
+
+if(!$conn->set_charset ("utf8")){
+    echo ( $conn->error);
+    exit();
+}
+
+
 if  (isset($_POST["name"]) && isset ($_POST["email"]) && isset ($_POST["text"])) {
 $name = $_POST["name"];
 $email = $_POST["email"];

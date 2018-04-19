@@ -103,6 +103,14 @@
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
     }
+
+    
+    if(!$conn->set_charset ("utf8")){
+        echo ( $conn->error);
+        exit();
+    }
+
+
     $menoo = mysqli_real_escape_string($conn, $_POST['menoo']);
     $priezo = mysqli_real_escape_string($conn, $_POST['priezo']);
     $menoa = mysqli_real_escape_string($conn, $_POST['menoa']);
@@ -114,6 +122,8 @@
     $stat = mysqli_real_escape_string($conn, $_POST['stat']);
     $druh = mysqli_real_escape_string($conn, $_POST['druh']);
     $cena = mysqli_real_escape_string($conn, $_POST['cena']);
+
+
     $sql = "INSERT INTO ob (menoo, priezo, menoa, prieza, ulica, cd, obec, psc, stat, druh, cena, stav)
     VALUES ('$menoo','$priezo','$menoa','$prieza','$ulica','$cd','$obec','$psc','$stat','$druh','$cena','Spracovane')";
     if($conn->query($sql) === true  ){

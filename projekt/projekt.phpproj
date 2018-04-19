@@ -32,6 +32,7 @@
     <Folder Include="pages\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\log.css" />
     <Content Include="css\style.css" />
   </ItemGroup>
 </Project>

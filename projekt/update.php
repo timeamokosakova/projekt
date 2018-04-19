@@ -62,6 +62,11 @@
             }
             echo "Connected successfully";
 
+            if(!$conn->set_charset ("utf8")){
+                echo ( $conn->error);
+                exit();
+            }
+
 
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $stav = mysqli_real_escape_string($conn, $_POST['stav']);

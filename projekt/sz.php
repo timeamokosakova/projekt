@@ -59,6 +59,14 @@
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             }
+
+
+            if(!$conn->set_charset ("utf8")){
+                echo ( $conn->error);
+                exit();
+            }
+
+
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $sql = "SELECT stav  FROM ob  WHERE `id` = $id";
             $result = $conn->query($sql);
