@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>DoruÄovacia sluÅ¾ba</title>
+    <title>Doruèovacia služba</title>
 </head>
 
 <a href="index.php">
@@ -19,10 +19,10 @@
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row " table-md>
 
     <a class="nav-item  flex-sm-fill text-sm-center nav-link" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoloÄnosti</A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> ZÃ¡sielka </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie zÃ¡sielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link active" HREF="EZ.php"> SprÃ¡va zÃ¡sielok </A>
+    <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoloènosti</A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> Zásielka </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie zásielok </A>
+    <A class="nav-item flex-sm-fill text-sm-center nav-link active" HREF="EZ.php"> Správa zásielok </A>
     <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="kontakt.php"> Kontakt</A>
 
 </nav>
@@ -40,20 +40,20 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
     if(!$conn->set_charset ("utf8")){
-    echo ( $conn->error);
-    exit();
+        echo ( $conn->error);
+        exit();
     }
     // Attempt select query execution
     $sql = "SELECT * FROM ob";
     if($result = $conn->query($sql)){
-    if($result->num_rows > 0){
-    }
-    else{
-    echo "ERROR: $sql. " . $conn->error;
-    }
+        if($result->num_rows > 0){
+        }
+        else{
+            echo "ERROR: $sql. " . $conn->error;
+        }
     }
     $conn->close();
     ?>
@@ -67,7 +67,7 @@
         <table class="table table-bordered table-md">
             <thead>
                 <tr>
-                    <th class="header" bgcolor="#0086b3">Sledovacie ÄÃ­slo</th>
+                    <th class="header" bgcolor="#0086b3">Sledovacie èíslo</th>
                     <th class="header" bgcolor="#0086b3">Meno</th>
                     <th class="header" bgcolor="#0086b3">Priezvisko</th>
                     <th class="header" bgcolor="#0086b3">Stav</th>

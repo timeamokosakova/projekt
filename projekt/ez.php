@@ -85,7 +85,7 @@ session_destroy();
             </div>
         </div><?php
     } else {
-    $result = mysqlI_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+    $result = mysqli_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
     $row  = mysqli_fetch_array($result);
     ?>
 
@@ -93,7 +93,7 @@ session_destroy();
 
             <div class="tlacidla"><?php echo ucwords($row['display_name']); ?>
                 <input type="submit" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" name="Odhlásenie" value="Odhlásenie">
-                <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a>
+                <a href="table.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a>
 
             </div>
 

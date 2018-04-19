@@ -82,11 +82,11 @@
             $conn->close();
         }
     ?>
-        </div>
+      
     
     <?php include('pages/table.php') ?>
 
-   
+ </div>
 
     <?php include('pages/foot.php') ?>
 

@@ -25,6 +25,7 @@
     <Compile Include="pages\foot.php" />
     <Compile Include="pages\table.php" />
     <Compile Include="sz.php" />
+    <Compile Include="table.php" />
     <Compile Include="update.php" />
   </ItemGroup>
   <ItemGroup>
