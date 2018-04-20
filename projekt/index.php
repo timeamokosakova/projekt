@@ -11,9 +11,7 @@
     <title>Doručovacia služba</title>
 </head>
 
-<a href="index.php">
-    <img src="LOG.PNG" style="width:10%;height:40px">
-</a>
+
 
 
 
@@ -35,7 +33,7 @@
         <CENTER>
             <img src="posta.gif" class="img-fluid" style="vertical-align: text-bottom;;width:400PX;height:400PX0px" />
         </CENTER>
-    </DIV>
+
 
 
     <?php include('pages/foot.php') ?>

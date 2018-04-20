@@ -9,9 +9,6 @@
     <title>Doručovacia služba</title>
 </head>
 
-<a href="index.php">
-    <img src="LOG.PNG" style="width:10%;height:40px">
-</a>
 
 
 
@@ -40,7 +37,6 @@
             <br>
         </UL>
 
-    </DIV>
 
 
 
