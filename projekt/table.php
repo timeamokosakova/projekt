@@ -43,7 +43,7 @@
         echo ( $conn->error);
         exit();
     }
-    // Attempt select query execution
+
     $sql = "SELECT * FROM ob";
     if($result = $conn->query($sql)){
         if($result->num_rows > 0){
@@ -54,10 +54,6 @@
     }
     $conn->close();
     ?>
-
-  
-
-
 
 
     <div ="container">

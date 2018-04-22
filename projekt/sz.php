@@ -64,6 +64,7 @@
 
 
             $id = mysqli_real_escape_string($conn, $_POST['id']);
+
             $sql = "SELECT stav  FROM ob  WHERE `id` = $id";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
