@@ -1,122 +1,96 @@
 <?php
+// hodnoty správy
+$msg = '';
+$msgClass = '';
 
-// define variables and set to empty values
-$meno_error = $email_error  = "";
-$meno = $email =  $message = "";
+// pre odoslanie
+if(filter_has_var(INPUT_POST, 'submit')){
+    // hodnoty dát
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
 
-//form is submitted with POST method
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["meno"])) {
-    $name_error = "Name is required";
-  } else {
-    $name = test_input($_POST["meno"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$meno)) {
-      $meno_error = "Only letters and white space allowed";
+    // položka
+    if(!empty($email) && !empty($name) && !empty($message)){
+
+        // Email
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+            // polia
+            $msg = 'Neplatný email';
+            $msgClass = 'alert-danger';
+        } else {
+            // pridaný
+            $toEmail = 'timea.mokosakova@gmail.com';
+            $subject = 'Kontaktoval vás: ' .$name;
+            $body = '<h2>Žiadosť </h2>
+					<h4>Meno</h4><p>'.$name.' </p>
+					<h4>Email</h4><p>'.$email.'</p>
+					<h4>Správa<h4><p>'.$message.'</p>
+				';
+
+            // Email hlavička
+            $headers = "MIME-Version: 1.0" ."\r\n";
+            $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
+
+
+            $headers .= "From: " .$name. "<".$email.">". "\r\n";
+
+            if(mail($toEmail, $subject, $body, $headers)){
+                // Email poslaný
+                $msg = 'EMAIL bol poslaný';
+                $msgClass = 'alert-success';
+            } else {
+                // neposlaný
+                $msg = 'Email nebol poslaný';
+                $msgClass = 'alert-danger';
+            }
+        }
+    } else {
+        // zle
+        $msg = 'Vyplnte všetky položky';
+        $msgClass = 'alert-danger';
     }
-  }
-
-  if (empty($_POST["email"])) {
-    $email_error = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $email_error = "Invalid email format";
-    }
-  }
-
-
-  if (empty($_POST["message"])) {
-    $message = "";
-  } else {
-    $message = test_input($_POST["message"]);
-  }
-
-  if ($name_error == '' and $email_error == ''){
-      $message_body = '';
-      unset($_POST['submit']);
-      foreach ($_POST as $key => $value){
-          $message_body .=  "$key: $value\n";
-      }
-
-      $to = 'timea.mokosakova@gmail.com';
-      $subject = 'Contact Form Submit';
-      if (mail($to, $subject, $message)){
-          $success = "Message sent, thank you for contacting us!";
-          $name = $email =  $message  '';
-      }
-  }
-
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
 }
 ?>
 
-
 <!DOCTYPE html>
-
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Doručovacia služba</title>
+    <title>Doručovacia služba </title>
+    <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" />
 </head>
-
-<a href="index.php">
-    <img src="LOG.PNG" style="width:10%;height:40px">
-</a>
-
-
-
-<nav class="nav nav-pills nav-fill flex-column flex-sm-row">
-
-    <a class="nav-item  flex-sm-fill text-sm-center nav-link" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
-    <A class="nav-item  flex-sm-fill text-sm-center nav-link  " HREF="ospol.php"> O spoločnosti</A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> Zásielka </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="SZ.php"> Sledovanie zásielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link" HREF="EZ.php"> Správa zásielok </A>
-    <A class="nav-item flex-sm-fill text-sm-center nav-link active" HREF="kontakt.php"> Kontakt</A>
-
-</nav>
-
 <body>
-
-
-    <DIV class="hlavna">
-
-
-        <form action="cont.php" method="POST">
-
-            <div class="form-group row">
-                <label for="con" class="col-sm-2 col-form-label"> Kontaktujte nás:   </label>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="kontakt.php">Späť na kontakt </a>
             </div>
-
+        </div>
+    </nav>
+    <div class="container">
+        <?php if($msg != ''): ?>
+        <div class="alert <?php echo $msgClass; ?>">
+            <?php echo $msg; ?>
+        </div>
+        <?php endif; ?>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="form-group">
-                <label for="name">Meno </label>
-                <input type="text" class="form-control" required id="name" name="name" placeholder="Meno">
-                <label for="email"> Email </label>
-                <input type="text" class="form-control" required id="email" name="email" placeholder="Email ">
-                <label for="message">Správa:</label>
-                <textarea class="form-control" placeholder="Komentár " rows="5" id="message"></textarea>
+                <label>Meno</label>
+                <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>" />
             </div>
-
-
-            <center>
-                <button type="submit" class="btn btn-primary" required id="submit" data-toggle="modal" name="submit" value="send"> Odoslať </button>
-            </center>
-
-
-
-
-
-
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>" />
+            </div>
+            <div class="form-group">
+                <label>Správa </label>
+                <textarea name="message" class="form-control">
+                    <?php echo isset($_POST['message']) ? $message : ''; ?>
+                </textarea>
+            </div>
+            <br />
+            <button type="submit" name="submit" class="btn btn-primary">Odoslať  </button>
         </form>
-    <<?php include('pages/foot.php') ?>
+    </div>
+</body>
+</html>
