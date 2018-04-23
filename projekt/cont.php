@@ -1,58 +1,38 @@
 <?php
-// hodnoty správy
-$msg = '';
-$msgClass = '';
+if (isset($_POST["submit"])) {
 
-// pre odoslanie
-if(filter_has_var(INPUT_POST, 'submit')){
-    // hodnoty dát
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-
-    // položka
-    if(!empty($email) && !empty($name) && !empty($message)){
-
-        // Email
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-            // polia
-            $msg = 'Neplatný email';
-            $msgClass = 'alert-danger';
-        } else {
-            // pridaný
-            $toEmail = 'timea.mokosakova@gmail.com';
-            $subject = 'Kontaktoval vás: ' .$name;
-            $body = '<h2>Žiadosť </h2>
-					<h4>Meno</h4><p>'.$name.' </p>
-					<h4>Email</h4><p>'.$email.'</p>
-					<h4>Správa<h4><p>'.$message.'</p>
-				';
-
-            // Email hlavička
-            $headers = "MIME-Version: 1.0" ."\r\n";
-            $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
+    $sendto      = 'timea.mokosakova@gmail.com';
 
 
-            $headers .= "From: " .$name. "<".$email.">". "\r\n";
+    $message = $_POST["message"];
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $subject = "Stránka";
+    $Field = "";
+    $Field .= "Name: ";
+    $Field .= $name;
+    $Field .= "\n";
+    $Field .= "Email: ";
+    $Field .= $email;
+    $Field .= "\n";
+    $Field .= "Message: ";
+    $Field .= $message;
+    $Field .= "\n";
 
-            if(mail($toEmail, $subject, $body, $headers)){
-                // Email poslaný
-                $msg = 'EMAIL bol poslaný';
-                $msgClass = 'alert-success';
-            } else {
-                // neposlaný
-                $msg = 'Email nebol poslaný';
-                $msgClass = 'alert-danger';
-            }
-        }
-    } else {
-        // zle
-        $msg = 'Vyplnte všetky položky';
-        $msgClass = 'alert-danger';
+    $ok = mail($sendto, $subject, $Field, "From:".$email);
+
+    if ($ok) {
+
+
+        $usp = "<div class='alert alert-success'>Odoslané.</div>";
+
+    }
+    else {
+        $prob = "<div class='alert alert-danger' > Niečo je zlé </div>";
     }
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,31 +47,38 @@ if(filter_has_var(INPUT_POST, 'submit')){
             </div>
         </div>
     </nav>
-    <div class="container">
+    <body>
 
-        <?php if($msg != ''): ?>
-        <div class="alert <?php echo $msgClass; ?>">
-            <?php echo $msg; ?>
+        <div class="container">
+            <?php
+        if (isset($_POST["submit"])) {
+            if ($usp) {
+
+
+                echo $usp;
+
+            }
+            else {
+                echo $prob;
+            }
+        }
+            ?>
+            <form action="cont.php" method="post">
+                <div class="form-group">
+                    <label for="name">Meno:</label>
+                    <input type="text" placeholder="Meno" name="name" class="form-control" id="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="name">Email:</label>
+                    <input type="email" placeholder="Email" name="email" class="form-control" id="email" required />
+                </div>
+                <textarea name="message" class="form-control" placeholder="Zadaj komentár"></textarea>
+                <br />
+                <button type="submit" name="submit" class="btn btn-primary">Odoslať  </button>
+
+            </form>
+
         </div>
-        <?php endif; ?>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="form-group">
-                <label>Meno</label>
-                <input type="text" name="name" class="form-control" value="<?php echo isset($_POST['name']) ? $name : ''; ?>" />
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $email : ''; ?>" />
-            </div>
-            <div class="form-group">
-                <label>Správa </label>
-                <textarea name="message" class="form-control">
-                    <?php echo isset($_POST['message']) ? $message : ''; ?>
-                </textarea>
-            </div>
-            <br />
-            <button type="submit" name="submit" class="btn btn-primary">Odoslať  </button>
-        </form>
-    </div>
-</body>
+
+    </body>
 </html>
