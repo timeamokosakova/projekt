@@ -68,6 +68,7 @@ if(filter_has_var(INPUT_POST, 'submit')){
         </div>
     </nav>
     <div class="container">
+
         <?php if($msg != ''): ?>
         <div class="alert <?php echo $msgClass; ?>">
             <?php echo $msg; ?>
