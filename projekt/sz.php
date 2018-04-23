@@ -80,6 +80,6 @@
             ?>
 
 
-
+</form>
     
     <?php include('pages/foot.php') ?>

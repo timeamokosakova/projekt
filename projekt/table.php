@@ -55,6 +55,11 @@
     $conn->close();
     ?>
 
+ <DIV class="hlavna"> 
+    <center>   Prosím pre zmenu objednávok klikni :  <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a> </center>
+</DIV>
+
+
 
     <div ="container">
         <table class="table table-bordered table-md">
@@ -64,18 +69,18 @@
                     <th class="header" bgcolor="#0086b3">Meno</th>
                     <th class="header" bgcolor="#0086b3">Priezvisko</th>
                     <th class="header" bgcolor="#0086b3">Stav</th>
-                    <th class="header" bgcolor="#0086b3">Zmena</th>
+                   
                 </tr>
             </thead>
 
             <tbody><?php while ($row = mysqli_fetch_array($result)) { ?>
                 <tr>
 
-                    <td bgcolor="#e6edf2"> <?php echo $row["id"] ?></td>
+                    <td bgcolor="#e6edf2"> <?php echo $row["id"]  ?> </td>
                     <td bgcolor="#e6edf2"><?php echo $row["menoa"] ?></td>
                     <td bgcolor="#e6edf2"><?php echo $row["prieza"] ?></td>
                     <td bgcolor="#e6edf2"><?php echo $row["stav"] ?></td>
-                    <td bgcolor="#e6edf2"> <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a> </td>
+                  
                 </tr><?php } ?>
             </tbody>
 
