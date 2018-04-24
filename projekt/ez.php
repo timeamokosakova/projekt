@@ -83,10 +83,10 @@ session_destroy();
                 </form>
             </div>
         </div><?php
-    } else {
-    $result = mysqli_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
-    $row  = mysqli_fetch_array($result);
-    ?>
+        } else {
+        $result = mysqli_query($conn,"SELECT * FROM login WHERE id='" . $_SESSION["id"] . "'");
+        $row  = mysqli_fetch_array($result);
+        ?>
 
         <form action="" method="post" id="frmLogout">
 
@@ -97,17 +97,13 @@ session_destroy();
             </div>
 
         </form>
-        
+
     </center>
-        </div>
-        </DIV><?php } ?>
-
-
-
-    
-
+    </div>
+    </DIV><?php } ?>
 
     </center>
     
     
-  
+    <?php include('pages/foot.php') ?>
+

@@ -13,7 +13,6 @@
 
 
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row">
-
     <a class="nav-item  flex-sm-fill text-sm-center nav-link" href="index.php"> <img src="DOMOV.png" style="vertical-align: text-bottom;;width:40PX;height:40Px"> </a>
     <A class="nav-item  flex-sm-fill text-sm-center nav-link active  " HREF="ospol.php"> O spoločnosti</A>
     <A class="nav-item flex-sm-fill text-sm-center nav-link " HREF="OB.php"> Zásielka </A>
@@ -30,8 +29,8 @@
 
         <UL type="disc">
             <br>
-            <li>Spoločnosť MDS so svojimi vlastnými národnými spoločnosťami a partnermi pokrýva 10 európskych krajín. Kvalitná balíková služba je našou najvyššou prioritou - viac ako 1000 zákazníkov sa na nás spolieha.</li>
-            <LI>Spoločnosť vznikla v roku 2017. Za účelom kvalitnej prepravy.</LI>
+            <LI> Spoločnosť TMD so svojimi vlastnými národnými spoločnosťami a partnermi pokrýva 10 európskych krajín. Kvalitná balíková služba je našou najvyššou prioritou - viac ako 100 zákazníkov sa na nás spolieha.</LI>
+            <LI> Spoločnosť vznikla v roku 2017. Za účelom kvalitnej prepravy.</LI>
             <br>
             <br>
             <br>

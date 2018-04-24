@@ -1,6 +1,4 @@
-<a href="index.php">
-    <img src="LOG.PNG" style="width:40px;height:40px" align="right">
-</a>
+
 
 </div>
 

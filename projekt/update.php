@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,9 +7,6 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Doručovacia služba</title>
 </head>
-
-
-
 
 
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row " table-md>
@@ -44,7 +40,6 @@
             <button type="submit" class="btn btn-primary" required id="submit" data-toggle="modal" name="submit" value="submit"> Odoslať </button>  <a href="table.php" class="btn btn-primary" data-toggle="modal role="button" aria-pressed="true">Späť</a>
         
 
-
         <?php
         if(isset($_POST['submit'])){ 
             $servername = "localhost";
@@ -74,15 +69,6 @@
                 echo "Error updating record: " . $conn->error;
             }
             $conn->close();
-
-           
-    
-           
-         
-
-
-
-
         }
         ?>
       

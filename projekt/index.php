@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 
@@ -10,9 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Doručovacia služba</title>
 </head>
-
-
-
 
 
 <nav class="nav nav-pills nav-fill flex-column flex-sm-row">

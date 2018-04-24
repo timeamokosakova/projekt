@@ -1,37 +1,28 @@
 <?php
 if (isset($_POST["submit"])) {
-
-    $sendto      = 'timea.mokosakova@gmail.com';
-
-
-    $message = $_POST["message"];
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $subject = "Stránka";
-    $Field = "";
-    $Field .= "Name: ";
-    $Field .= $name;
-    $Field .= "\n";
-    $Field .= "Email: ";
-    $Field .= $email;
-    $Field .= "\n";
-    $Field .= "Message: ";
-    $Field .= $message;
-    $Field .= "\n";
-
-    $ok = mail($sendto, $subject, $Field, "From:".$email);
-
-    if ($ok) {
-
-
-        $usp = "<div class='alert alert-success'>Odoslané.</div>";
-
-    }
-    else {
-        $prob = "<div class='alert alert-danger' > Niečo je zlé </div>";
-    }
+$sendto      = 'timea.mokosakova@gmail.com';
+$message = $_POST["message"];
+$name = $_POST["name"];
+$email = $_POST["email"];
+$subject = "Stránka";
+$Field = "";
+$Field .= "Name: ";
+$Field .= $name;
+$Field .= "\n";
+$Field .= "Email: ";
+$Field .= $email;
+$Field .= "\n";
+$Field .= "Message: ";
+$Field .= $message;
+$Field .= "\n";
+$ok = mail($sendto, $subject, $Field, "From:".$email);
+if ($ok) {
+$usp = "<div class='alert alert-success'>Odoslané.</div>";
 }
-
+else {
+$prob = "<div class='alert alert-danger' > Niečo je zlé </div>";
+}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,25 +34,21 @@ if (isset($_POST["submit"])) {
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="kontakt.php">Späť na kontakt </a>
+
             </div>
         </div>
     </nav>
     <body>
 
-        <div class="container">
-            <?php
-        if (isset($_POST["submit"])) {
+        <div class="container"><?php
+            if (isset($_POST["submit"])) {
             if ($usp) {
-
-
-                echo $usp;
-
+            echo $usp;
             }
             else {
-                echo $prob;
+            echo $prob;
             }
-        }
+            }
             ?>
             <form action="cont.php" method="post">
                 <div class="form-group">
@@ -80,5 +67,10 @@ if (isset($_POST["submit"])) {
 
         </div>
 
+
     </body>
+
+
+    <div> <a href="kontakt.php" class="btn btn-primary" data-toggle="modal role=" button" style="float: left; margin-left: 10px;" aria-pressed="true"> Späť na kontakt </a>  </div>
 </html>
+

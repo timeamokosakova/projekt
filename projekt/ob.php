@@ -28,7 +28,6 @@
 
     <DIV class="hlavna ">
         <form method="post" action="ob.php">
-
             <div class="form-group row">
                 <label for="Odosielateľ " class="col-sm-2 col-form-label"> Odosielateľ:  </label>
             </div>
@@ -87,7 +86,6 @@
         </form>
      
    
-    
     <?php
     if(isset($_POST["submit"])){
     $servername = "localhost";

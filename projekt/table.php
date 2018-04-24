@@ -24,11 +24,7 @@
 
 </nav>
 
-<body>
-
-
-
-    <?php
+<body>    <?php
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -37,27 +33,26 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
     }
     if(!$conn->set_charset ("utf8")){
-        echo ( $conn->error);
-        exit();
+    echo ( $conn->error);
+    exit();
     }
-
-    $sql = "SELECT * FROM ob";
+    $sql = "SELECT * FROM ob LIMIT 10";
     if($result = $conn->query($sql)){
-        if($result->num_rows > 0){
-        }
-        else{
-            echo "ERROR: $sql. " . $conn->error;
-        }
+    if($result->num_rows > 0){
+    }
+    else{
+    echo "ERROR: $sql. " . $conn->error;
+    }
     }
     $conn->close();
     ?>
 
- <DIV class="hlavna"> 
-    <center>   Prosím pre zmenu objednávok klikni :  <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a> </center>
-</DIV>
+    <DIV class="hlavna">
+        <center>   Prosím pre zmenu objednávok klikni :  <a href="Update.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Zmena</a> </center>
+    </DIV>
 
 
 
@@ -69,24 +64,22 @@
                     <th class="header" bgcolor="#0086b3">Meno</th>
                     <th class="header" bgcolor="#0086b3">Priezvisko</th>
                     <th class="header" bgcolor="#0086b3">Stav</th>
-                   
+
                 </tr>
             </thead>
 
             <tbody><?php while ($row = mysqli_fetch_array($result)) { ?>
                 <tr>
-
                     <td bgcolor="#e6edf2"> <?php echo $row["id"]  ?> </td>
                     <td bgcolor="#e6edf2"><?php echo $row["menoa"] ?></td>
                     <td bgcolor="#e6edf2"><?php echo $row["prieza"] ?></td>
                     <td bgcolor="#e6edf2"><?php echo $row["stav"] ?></td>
-                  
+
                 </tr><?php } ?>
             </tbody>
 
         </table>
 
     </div>
-
-
-  
+    
+    <?php include('pages/foot.php') ?>
