@@ -67,15 +67,18 @@
             $id = mysqli_real_escape_string($conn, $_POST['id']);
             $stav = mysqli_real_escape_string($conn, $_POST['stav']);
             
-            
             $sql = "UPDATE ob SET stav='$stav' WHERE id=$id";
             if ($conn->query($sql) === TRUE) {
                 echo " <br> Zmena";
             } else {
                 echo "Error updating record: " . $conn->error;
             }
-
             $conn->close();
+
+           
+    
+           
+         
 
 
 
